@@ -1,0 +1,391 @@
+/* GLOBAL RESET */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* GLOBAL COLORS */
+html {
+    --my-white: rgb(245 245 245 /1);
+    --my-magenta: rgb(252, 15, 192, 1);
+    --my-green: rgb(0 255 0 /1);
+    --my-black: rgb(10 10 10 /1);
+    --my-gray: rgb(128 128 128 /1);
+    --my-gray10: rgb(128 128 128 /.1);
+}
+body { background-color: var(--my-white); }
+a { color: rgb(0 0 0 /0.8); }
+/* a:hover {color: rgb(0 0 0 /.2);} */
+
+/* GLOBAL STRUCTURE */
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* GLOBAL TYPOGRAPHY */
+body {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 88.75%;  /* 14pt */
+	line-height: 1.4; 
+	color: rgb(0 0 0 /0.8);
+}
+
+
+/* HEADGINGS */
+h1, h2 {
+    font-family: 'pp_editorial_oldregular', Georgia, sans-serif;
+    margin: .5em 0;
+}
+
+h3 {
+    font-family: 'pp_editorial_olditalic', Georgia, sans-serif;
+    margin: .5em 0;
+}
+
+h4, dt {
+    font-family: 'pp_editorial_ultrabold', Georgia, sans-serif;
+    margin: .5em 0;
+}
+
+/* PARAGRAPHS */
+p { max-width: 66ch; }
+
+/* LINK */
+a {
+	text-decoration: none;
+    position: relative;
+    text-decoration: none;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+    background-color: var(--my-green);
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  
+a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* COMPONENTS ---------- */
+/* BUTTONS */
+/* .button {
+    font-size: inherit;
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid var(--my-pink);
+    background-color: var(--my-pink);
+    color: var(--my-pink);
+    padding: 1em;
+    margin: .5em .5em .5em 0;
+    border-radius: 0.1em;
+}
+
+.button:hover {
+    border: 2px solid var(--my-pink);
+    background-color: rgb(0 0 0 /0);
+    color: var(--my-pink);
+    text-decoration: none;
+} */
+
+/* GENERAL LISTS */
+ul, ol {
+    padding-left: 1.5em;
+}
+
+/* SITE HEADER */
+header { 
+    background-color: var(--my-black);
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* SITE ID */
+.site-id h1 {
+    margin: 0;
+}
+
+/* SITE NAV */
+.site-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav a {
+    display: block;
+    padding: .1em 0.5em;
+    margin: 0 0.5em;
+    text-decoration: none;
+    color: var(--my-green);
+}
+  
+
+/* MAIN */
+main {
+    background-color: var(--my-off-white);  
+}
+
+section {
+    padding: 3em 1em;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--my-green);
+    margin: 0;
+    padding: 1em;
+}
+
+/* SOCIAL NAV */
+.social-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-nav a {
+    display: block;
+    padding: 1em;
+}
+
+.social-nav li:hover {
+    transform: scale(1.3, 1.3);
+}
+
+/* HERO SECTION & ANIMATION */
+.hero {
+    text-align: center;
+    color: rgb(0 0 0 /0.8);
+    padding: 6em 1em;
+}
+
+.hero h2 {
+    font-size: 6em;
+    color: var(--my-white);  
+    text-shadow: 0em 0em 0.2em rgb(0 0 0 /.8);
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+.hero h2,
+.courses h3 {
+    animation-name: animation-h2;
+    animation-duration: 2s;
+}
+
+@keyframes animation-h2 {
+    0%    { opacity: 0;
+            transform: translateY(-0.5em);}
+    10%   { opacity: 0;}
+    100% { opacity: 1;}
+}
+
+.hero p {
+    color: var(--my-white);
+    margin: 1em auto;
+}
+
+.hero p,
+.cards {
+    animation-name: animation-p;
+    animation-duration: 2s;
+}
+
+@keyframes animation-p {
+    0%    { opacity: 0;
+            transform: translateY(0.5em);}
+    10%   { opacity: 0;}
+    100% { opacity: 1;}
+}
+
+/* CUSTOM STYILING FOR SPECIFIC & SUB SECTION */
+.page-home .hero {
+    background-image: url(../img/black-01.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20vh 1em;
+}
+.page-home header {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+.page-home section {
+    background-color: rgb(0 0 0 /1);
+}
+
+.page-sub .hero{
+    background-color: rgb(0 0 0 /0.5);
+    color: rgb(0 0 0 /0.8);
+}
+
+/* COURSE SECTION, HOME */
+.courses .cards {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 3em;
+    flex-wrap: wrap;
+    padding: 3em 0;
+    font-size: .875em;
+    line-height: 1.1;
+}
+
+.courses .cards li {
+    min-width: 30%;
+}
+
+.courses .cards a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--my-gray10);
+    border-radius: 5px;
+    /* margin: 1em; */
+    padding: 4em 2em;
+    /* list-style: none; */
+    text-decoration: none;
+    box-shadow: 0 0 8px 0 rgba(255 255 255 /.5);
+}
+
+.container-home {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+ .courses {
+    padding: 4em 1em 7em 1em;
+    display: grid; 
+    align-items: center;
+}
+
+/* QUESTION: Why is the general animation still applied?
+And how can I make it transtion? */
+.courses .cards a:hover {
+    transform: scale(1.05, 1.05);
+    transition: all .2sc ease-out;
+    background-color: var(--my-white);
+    color: var(--my-gray);
+    box-shadow: 0 0 12px 0 var(--my-green);
+}
+
+.courses h3, .courses a {
+    color: var(--my-white);
+    text-align: center;
+}
+
+.cards li {
+    color: var(--my-black);
+}
+.courses .cards span {
+    display: block;
+    /* color: var(--my-black); */
+    font-size: 2em;
+}
+
+
+/* COURSE PAGES WITH MULTIPLE PROJECT LISTS */
+.coursework{
+padding: 3em 1em;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.project {
+margin: 2em;
+}
+
+/* LAYOUT */
+.container {
+max-width: 1000px;
+margin: 0 auto;
+}
+
+section {
+padding: 3em 1em;
+}
+
+/* SIDEBAR/ASIDE */
+.aside {
+    padding: 2em 0;
+}
+
+@media (min-width: 768px) {
+    .two-col-sidebar{
+        display: grid;
+        grid-template-columns: 20em auto;
+    }
+
+    .two-col-sidebar aside{
+        border-right: 1px solid rgb(0 0 0 /0.1);
+        margin: 0 3em 2em 0;
+        padding: .3em 2em 0 0;
+    }
+}
+
+/* PRE CODE STYLE & CODE BLOCKS */
+pre code {
+    width: 100%;
+    display: block;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 1em 3em;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.markup-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 1em 3em;
+    margin-bottom: 1em;
+}
+/* NOTES PAGE SCCROLLBAR FIX FOR GISTS */
+@media (min-width: 768px) and (max-width: 910px) {
+    .gist {
+    max-width: 450px;
+    }
+}
+
+/* DEFINITION LISTS */
+dt {
+    /* font-weight: bold; */
+    margin-top: 1em;
+}
+
+dd {
+    margin: 0;
+}
+
+
+/* FOR WEB DEV PURPOSES ONLY */
+/* this is to see blocks */
+/* body * {
+    background-color: rgb(0 0 0 /0.05);
+    border: 1px solid rgb(0 0 0 /0.1);
+    color: rgb(0 0 0 /0.5);
+} */
