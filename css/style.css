@@ -571,15 +571,15 @@ radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
 
 @media (min-width: 768px) {
     .thumbgrid li {
-        width: 32.75%;        /* three cards row */
-        /* width: 49.5%;         two cards row */
+        /* width: 32.75%;        three cards row */
+        width: 49.5%;         /* two cards row */
         /* width: 45%;        two cards row */
     }
 }
 
 .thumbgrid-card {
     /* border: 1px solid blue; */
-    border-radius: 5%;
+    border-radius: 2.5%;
     filter: brightness(.9);
     overflow: hidden;
     /* box-shadow: 0 4px 8px 0 var(--my-black20); */
@@ -755,6 +755,10 @@ radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
 
 .solid-view-criminal {
     background-image: url(../work_03-criminalspinoff/img/criminal-hero.jpg);
+}
+
+.solid-view-fujita {
+    background-image: url(../work_04-sneilfujita/img/fujita_hero_1920x1440.jpg);
 }
 
 /* TOGGLE NAV ---------- */ 
