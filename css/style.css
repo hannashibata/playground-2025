@@ -1,32 +1,45 @@
 @charset "UTF-8";
-/* PLAYBROUD-2024 CSS (Initial Setup)
+/* PLAYBROUD-2025 CSS (Initial Setup)
 ---------------------------------
-    #GLOBAL RESET (line 31)
-    #CONTENT
-        #TYPOGRAPHY (line 48)
-            #BODY
-            #HEADINGS
-            #PARAGRAPHS
-            #LINKS
-            #HELPER
-        #MEDIA
-            #IMAGES
-        #COMPONENTS
-            #BUTTONS
-    #LAYOUT
-        #MEDIQUERIES
-        #CONTAINER
-        #GRID SYSTEM
-    #SITE
-        #SITE STRUCTURE
-            #HEADER
-                #site-id (IDENTIFIER, LOGO)
-            #FOOTER
-            #SECTIONS
-            #SUB PAGES / CUSTOM CSS FOR EACH PAGE
-        #SITE NAVIGATION
-            #TOGGLE-NAV (Default for Small Screens)
----------------------------------*/
+/* 
+CSS TABLE OF CONTENTS
+
+# BASIC CSS FROM PARTIALS
+
+# GLOBAL STYLES
+    # GLOBAL VARIABLES
+    # GLOBAL RESET
+    # GLOBAL COLORS
+    # GLOBAL TYPOGRAPHY
+    # GLOBAL MEDIA
+    # GLOBAL HELPERS
+
+# LAYOUT & GRID SYSTEM (=====> @import)
+    # MEDIA QUERIES / BREAKPOINTS (RESPONSIVE TYPOGRAPHY)
+    # CONTAINER
+    # GRID
+
+# SITE STRUCTURE
+    # HEADER
+        # LOGO
+        # SITE NAV
+            # TOGGLE MENU
+                # NAVICON / HAMBURGER
+        # SITE-HEADER-ON-TOP-OF-HERO
+    # MAIN
+        # SECTIONS
+            # HERO
+    # FOOTER
+
+# UI COMPONENTS (=====> @import)
+    # BUTTONS
+
+# ANIMATION
+    # SMOOTH SCROLLING
+
+# CUSTOM STYLING
+
+--------------------------------- */
 
 /* GLOBAL SETTINGS ---------- */ 
 /* GLOBAL RESET */
@@ -47,10 +60,11 @@ html {
 }
 body { 
     background-color: var(--my-white);
+    /* background-color:rgb(177, 177, 177); */
 }
 
-/* TYPOGRAPHY ---------- */ 
-/* Reference ----------
+/* TYPOGRAPHY ------------------ */ 
+/* Reference -------------------
     62.5%   => 10px 
     68.2%   => 11px
     75%     => 12px
@@ -60,9 +74,8 @@ body {
     112.5%  => 18px
     125%    => 20px
 
-   Traditional Typographic Scale
-   48, 36, 24, 21, 18, 16
--------------------- */
+   Traditional Typographic Scale (48, 36, 24, 21, 18, 16)
+--------------------------------- */
 
 body {
 	font-family: 'karla', sans-serif;
@@ -97,37 +110,44 @@ dt {
 }
 
 h1 {
-    font-size: 2.25em;    /* 36px / 16px = 2.25em */
+    /* 36px / 16px = 2.25em */
+    font-size: 2.25em;
     line-height: 1.1;
 }
 
 h2 {
-    font-size: 1.5em;    /* 24px / 16px = 1.5em */
+    /* 24px / 16px = 1.5em */
+    font-size: 1.5em;
     line-height: 1.2;
 }
 
 h3 {
-    font-size: 1.3125em;    /* 21px / 16px = 1.3125em */
+    /* 21px / 16px = 1.3125em */
+    font-size: 1.3125em;
     line-height: 1.3;
 }
 
 h4 {
-    font-size: 1.125em;    /* 18px / 16px = 1.125em */
+    /* 18px / 16px = 1.125em */
+    font-size: 1.125em;
     line-height: 1.4;
 }
 
 h5 {
-    font-size: 1em;    /* 16px / 16px = 1em */
+    /* 16px / 16px = 1em */
+    font-size: 1em;
     line-height: 1.5;
 }
 
 h6 {
-    font-size: 0.875em;    /* 14px / 16px = 1em */
+    /* 14px / 16px = 1em */
+    font-size: 0.875em;
     line-height: 1.4;
 } 
 
 p {
-    font-size: 0.75em;   /* 12px */
+    /* 12px */
+    font-size: 0.75em;
     /* QUESTION: font weight seems not working, why?? and why is the list outside the margin??? */
     font-weight: 200;
     margin: 1em 0;
@@ -140,7 +160,8 @@ dt {
 }
 
 dt, dd {
-    font-size: 0.75em;   /* 12px */
+    /* 12px */
+    font-size: 0.75em;
     max-width: 38em;
 }
 
@@ -178,7 +199,7 @@ blockquote cite:before {
     margin-right: 0.25em;
 }
 
-/* HELPER CLASSES */
+/* GLOBAL HELPER CLASSES */
 /* .text-center {
     text-align: center;
 } */
@@ -193,43 +214,9 @@ blockquote cite:before {
     margin-right: auto;
 } */
 
-/* MEDIA ---------- */ 
-/* IMAGES */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* LAYOUT ---------- */ 
-/* CONTAINER */
-.container {
-    margin: 0 auto;
-    padding: 2% 0.5%;
-}
-
-.container-thumbgrid {
-    margin: 0 auto;
-    padding: 2% 4%;
-}
-
-.container-img {
-    margin: 0;
-    padding: 2%;
-    text-align: center;
-}
-
-/* BUTTONS */
-.link-button {
-    background-color: var(--my-black60);
-    border-radius: 2px;
-    color: var(--my-white);
-    padding: 0.25em 1em;
-}
-
-.link-button:hover {
-    background-color: var(--my-green);
-    color: var(--my-black);
-}
+/* ----------------------------------------------- */
+/* LAUOUT & GRID  */
+/* ----------------------------------------------- */
 
 /* MEDIA QUERIES */
 /* phone -> tablet -> laptop -> desktop */
@@ -256,6 +243,30 @@ img {
     .container-thumbgrid {
         max-width: 90vw;
     }
+}
+
+/* IMAGES */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* LAYOUT ---------- */ 
+/* CONTAINER */
+.container {
+    margin: 0 auto;
+    padding: 2% 0.5%;
+}
+
+.container-thumbgrid {
+    margin: 0 auto;
+    padding: 2% 4%;
+}
+
+.container-img {
+    margin: 0;
+    padding: 2%;
+    text-align: center;
 }
 
 /* GRID SYSTEM */
@@ -305,7 +316,27 @@ img {
     }
 }
 
-/* SITE ---------- */ 
+/* ----------------------------------------------- */
+/* UI COMPONENTS */
+/* ----------------------------------------------- */
+
+/* BUTTONS */
+.link-button {
+    background-color: var(--my-black60);
+    border-radius: 2px;
+    color: var(--my-white);
+    padding: 0.25em 1em;
+}
+
+.link-button:hover {
+    background-color: var(--my-green);
+    color: var(--my-black);
+}
+
+/* ----------------------------------------------- */
+/* SITE STRUCTURE  */
+/* ----------------------------------------------- */
+
 /* SITE HEADER & FOOTER */
 .site-header {
     padding: 1em 0 1em 0;
@@ -399,45 +430,17 @@ img {
 
 /* HOME */
 .solid-view {
-    background-color:rgb(177, 177, 177);
-    background-image:
+    /* background-color:rgb(177, 177, 177); */
+    border: 2px solid blue;
+    /* background-image:
     radial-gradient(at 63% 84%, rgb(124 124 124 /1) 0px, transparent 50%),
     radial-gradient(at 73% 34%, rgb(102, 90, 128) 0px, transparent 50%),
     radial-gradient(at 47% 7%, rgb(119 137 137 /1) 0px, transparent 50%),
     radial-gradient(at 81% 65%, rgb(139, 122, 106) 0px, transparent 50%),
     radial-gradient(at 0% 40%, var(--my-green) 0px, transparent 50%),
     radial-gradient(at 22% 59%, var(--my-magenta) 0px, transparent 50%);
-
-    /* background-color:hsla(0,0%,70%,1);
-background-image:
-radial-gradient(at 63% 84%, hsla(300,5%,35%,1) 0px, transparent 50%),
-radial-gradient(at 73% 34%, hsla(261,11%,30%,1) 0px, transparent 50%),
-radial-gradient(at 47% 7%, hsla(181,6%,41%,1) 0px, transparent 50%),
-radial-gradient(at 81% 65%, hsla(359,14%,40%,1) 0px, transparent 50%),
-radial-gradient(at 0% 40%, hsla(119,100%,50%,1) 0px, transparent 50%),
-radial-gradient(at 22% 59%, hsla(312,100%,50%,1) 0px, transparent 50%); */
-
-    /* background-color:hsla(0,0%,0%,1);
-background-image:
-radial-gradient(at 40% 20%, hsla(100,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 80% 0%, hsla(182,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 11% 51%, hsla(359,75%,76%,1) 0px, transparent 50%),
-radial-gradient(at 80% 50%, hsla(36,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 0% 100%, rgb(183, 255, 2) 0px, transparent 50%),
-radial-gradient(at 80% 100%, hsla(297,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
-
-    /* background-color:hsla(0,0%,0%,1);
-background-image:
-radial-gradient(at 40% 20%, hsla(100,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 80% 0%, hsla(182,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 0% 50%, hsla(51,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 80% 50%, hsla(36,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 0% 100%, hsla(78,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 80% 100%, hsla(298,30%,70%,1) 0px, transparent 50%),
-radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
     background-size: 300% 300%;
-    animation: gradient 8s ease infinite;
+    animation: gradient 8s ease infinite; */
 }
 
 .solid-view,
@@ -467,7 +470,7 @@ radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
     padding: 0;
     margin: 0;
     text-align: left;
-    color: var(--my-white);
+    color: var(--my-black);
     animation-name: fadein-up;
     animation-duration: 2s;
 }
@@ -547,11 +550,11 @@ radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
 }
 
 @media (min-width: 768px) {
-    .works-index {
-        height: 125vh;
+    /* .works-index {
+        min-height: 100vh;
         width: 100vw;
         padding: 6em 0 6em 0;
-    }
+    } */
 }
 
 /* THUMBGRID */
@@ -668,6 +671,28 @@ radial-gradient(at 0% 0%, hsla(39,30%,70%,1) 0px, transparent 50%); */
     line-height: 1.3;
     margin-bottom: 1em;
 }
+
+/* SCROLL TRIGGERED ANIMATION
+ * corresponding with JS
+ */
+
+ .observe-me {
+    opacity: 0;
+    transition: all .75s ease-out 0.5s;
+
+    &[data-viewstate="active"] {
+        opacity: 1;
+    }
+}
+.animate-from-bottom {
+    translate: 0 400px;
+    transition-delay: .5s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
 
 /* CUSTOM CSS FOR SUB PAGES */
 .title-subpage {
