@@ -1,10 +1,7 @@
-@charset "UTF-8";
-/* PLAYBROUD-2025 CSS (Initial Setup)
----------------------------------
-/* 
-CSS TABLE OF CONTENTS
+/* ----------------------
+-------------------------
 
-# BASIC CSS FROM PARTIALS
+CSS TABLE OF CONTENTS
 
 # GLOBAL STYLES
     # GLOBAL VARIABLES
@@ -14,7 +11,7 @@ CSS TABLE OF CONTENTS
     # GLOBAL MEDIA
     # GLOBAL HELPERS
 
-# LAYOUT & GRID SYSTEM (=====> @import)
+# LAYOUT
     # MEDIA QUERIES / BREAKPOINTS (RESPONSIVE TYPOGRAPHY)
     # CONTAINER
     # GRID
@@ -31,7 +28,7 @@ CSS TABLE OF CONTENTS
             # HERO
     # FOOTER
 
-# UI COMPONENTS (=====> @import)
+# UI COMPONENTS
     # BUTTONS
 
 # ANIMATION
@@ -39,644 +36,846 @@ CSS TABLE OF CONTENTS
 
 # CUSTOM STYLING
 
---------------------------------- */
+-------------------------
+---------------------- */
 
-/* GLOBAL SETTINGS ---------- */ 
+/* ----------------------------------------------- */
+/* GLOBAL STYLES  */
+/* ----------------------------------------------- */
+
+/* GLOBAL VARIABLES
+ * Definitions for commonly used colors, typeface, sizing-units.
+/* -----------------------------------------------  */
+
+@font-face {
+    font-family: 'ppeditorial-old-thin';
+    src: url('../fonts/PPEditorialOld-Thin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-thinitalic';
+    src: url('../fonts/PPEditorialOld-ThinItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'ppeditorial-old-regular';
+    src: url('../fonts/PPEditorialOld-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-italic';
+    src: url('../fonts/PPEditorialOld-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-bold';
+    src: url('../fonts/PPEditorialOld-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-bolditalic';
+    src: url('../fonts/PPEditorialOld-BoldItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* <weight>: Use a value from 200 to 800
+<uniquifier>: Use a unique and descriptive class name
+*/
+.karla-variable {
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} 
+
+:root {
+
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
+    --color-black: rgb(25 25 25 / .85);
+    --color-white: rgb(245 245 238 / 1);
+    --color-white85: rgb(245 245 238 / .85);
+    --color-yellow: rgb(255 238 0 /1);
+    --color-blue: rgb(0 17 255 /1);
+    /* blue:#0011ff yellow:#FFEE00; */
+
+
+    /* Dark mode */
+    --color-body-bg: rgb(25 25 25 / 1);
+    --color-a: rgb(255 255 255 / 1);
+    --color-a-hover: var(--color-yellow);
+    --color-siteheader-a: var(--color-white);
+    --color-siteheader-a-hover: var(--color-yellow);
+    --color-footer-bg: var(--color-white);
+    --color-footer-text: var(--color-black);
+    --color-footer-a: rgb(0 0 0 /1);
+    --color-footer-a-hover: var(--color-blue);
+    --color-text: var(--color-white85);
+
+    /* Light mode */
+    /* 
+    --color-body-bg: rgb(245 245 238 / 1);
+    --color-a: rgb(0 0 0 / 1);
+    --color-a-hover: var(--color-blue);
+    --color-siteheader-a: var(--color-black);
+    --color-siteheader-a-hover: var(--color-blue);
+    --color-footer-bg: rgb(0 0 0 /1);
+    --color-footer-text: rgb(255 255 255 /.8);
+    --color-footer-a: rgb(255 255 255 /1);
+    --color-footer-a-hover: var(--color-yellow);
+    --color-text: var(--color-black);
+     */
+
+    --color-siteheader-bg: transparent;
+
+    /* --color-text-headings-onlight: var(--color-black); */
+
+
+    /*  DEFINE ALL FONTS USED HERE */
+    --font-serif-bold: 'ppeditorial-old-bold', 'Georgia', serif;
+    --font-serif-bolditalic: 'ppeditorial-old-bolditalic', 'Georgia', serif;
+    --font-serif-regular: 'ppeditorial-old-regular', 'Georgia', serif;
+    --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
+    --font-serif-thin: 'ppeditorial-old-thin', 'Georgia', serif;
+    --font-serif-thinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
+    --font-body: "Karla", system-ui, "Helvetica", "Arial";
+
+    /* SIZING UNITS */
+    /* --container-width: 1200px; */
+    --container-width: 80vw;
+    --unit-small: 1em;
+    --unit-medium: 2em;
+    --unit-large: 4em;
+
+}
+
 /* GLOBAL RESET */
+
+/* CHANGE BOX-SIZING FOR ALL TO BORDER-BOX */
 * { box-sizing: border-box; }
-body { margin: 0;}
+
+/* REMOVE THE DEFAULT 8px MARGIN ON THE BODY */
+body { margin: 0; }
+
 
 /* GLOBAL COLORS */
-html {
-    --my-white: rgb(235 235 235  /1);
-    --my-white10: rgb(225 225 225  /.1);
-    --my-magenta: rgb(252 15 192 /1);
-    --my-green: rgb(0 255 0 /1);
-    --my-green80: rgba(128 255 128 /.8);
-    --my-black: rgb(10 10 10 /.8);
-    --my-black20: rgb(10 10 10 /.2);
-    --my-black30: rgb(10 10 10 /.3);
-    --my-black60: rgb(10 10 10 /.6);
-}
-body { 
-    background-color: var(--my-white);
-    /* background-color:rgb(177, 177, 177); */
-}
-
-/* TYPOGRAPHY ------------------ */ 
-/* Reference -------------------
-    62.5%   => 10px 
-    68.2%   => 11px
-    75%     => 12px
-    81.3%   => 13px
-    87.5%   => 14px
-    100%    => 16px / 1em
-    112.5%  => 18px
-    125%    => 20px
-
-   Traditional Typographic Scale (48, 36, 24, 21, 18, 16)
---------------------------------- */
-
 body {
-	font-family: 'karla', sans-serif;
-	font-size: 88.75%;  /* 14pt */
-	line-height: 1.4; 
-	color: var(--my-black);
+
+    /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
+    background-color: var(--color-body-bg);
+
+    /* SET THE COLOR OF THE MAIN BODY TEXT */
+    color: var(--color-text);
 }
 
- h1, h2, h3, h4, h5, h6 {
-    margin: 0.5em 0;
- }
+h1, h2, h3 {
 
- h1, h2 {
-    font-family: 'pp_editorial_oldregular', Georgia, serif;
-    margin: .5em 0;
+    /* SET THE COLOR OF ALL HEADINGS H1-etc */
+    color: var(--color-text);
+}
+
+a {
+    /* SET THE COLOR OF ALL TEXT LINKS */
+    color: var(--color-a);
+    text-decoration: none;
+    font-weight: 450;
+
+    /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
+    &:hover {
+        color: var(--color-a-hover);
+    }
+}
+
+/* GLOBAL TYPOGRAPHY */
+body {
+
+    /* SET THE FONT FOR ALL MAIN BODY TEXT */
+    /* font-family: var(--font-body); */
+
+    /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
+    line-height: 1.4;
+}
+
+/* SET THE FONT & MARGIN FOR ALL HEADINGS */
+h1, h2, h3 {
+    font-family: var(--font-serif-bold);
+    margin: .4em 0;
 }
 
 h3 {
-    font-family: 'pp_editorial_olditalic', Georgia, serif;
-    margin: .5em 0;
-}
-
-h4, h5, h6 {
-    font-family: 'Karla', sans-serif; 
-    margin: .5em 0;
-    font-weight: 600;
-}
-
-dt {
-    font-family: 'ppeditorialold-ultrabolditalic', Georgia, serif;
-/* QUESTIONO: why is not working */
+    font-family: var(--font-serif-regular);
+    margin: .4em 0;
 }
 
 h1 {
-    /* 36px / 16px = 2.25em */
-    font-size: 2.25em;
+    font-size: 3em;
     line-height: 1.1;
 }
 
 h2 {
-    /* 24px / 16px = 1.5em */
-    font-size: 1.5em;
+    font-size: 2em;
     line-height: 1.2;
 }
 
 h3 {
-    /* 21px / 16px = 1.3125em */
-    font-size: 1.3125em;
+    font-size: 1.5em;
     line-height: 1.3;
 }
 
 h4 {
-    /* 18px / 16px = 1.125em */
-    font-size: 1.125em;
-    line-height: 1.4;
+    font-size: 1.25em;
+    line-height: 1.2;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-h5 {
-    /* 16px / 16px = 1em */
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-h6 {
-    /* 14px / 16px = 1em */
-    font-size: 0.875em;
-    line-height: 1.4;
-} 
-
-p {
-    /* 12px */
-    font-size: 0.75em;
-    /* QUESTION: font weight seems not working, why?? and why is the list outside the margin??? */
-    font-weight: 200;
-    margin: 1em 0;
+dl {
+    /* border: 2px solid red; */
+    margin: 0;
     padding: 0;
-    max-width: 38em;
 }
 
 dt {
-    color: var(--my-black30)
-}
-
-dt, dd {
-    /* 12px */
-    font-size: 0.75em;
-    max-width: 38em;
+    /* font-family: var(--font-body); */
+    /* font-weight: 600; */
+    font-family: var(--font-serif-regular);
+    font-feature-settings: "dlig" 1;
 }
 
 dd {
-    padding: 0, 0, 0 -10em;
+    /* border: 2px solid red; */
+    font-family: var(--font-body); 
+    font-weight: 400;
+    line-height: 1.1;
 }
 
-/* LINKS */
-a {
-    text-decoration: none;
-    color: var(--my-black);
+p {
+    /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
+    max-width: 66ch;
+
+    /* NEW SCHOOL WIDOW SLAYER */
+    text-wrap: pretty;
+
 }
 
-a:hover {
-    color: var(--my-green);
-}
-
-/* BLOCK QUOTES */
 blockquote {
-    font-size: 1.142em;
-    margin: 1.5em 0;
-    padding: 1.5em;
-    border-top: 0px solid #ccc;
-    border-bottom: 0px solid #ccc;
+    margin: .5em 0 .25em 0;
+    padding: 0;
+    font-family: var(--font-serif-regularitalic);
+    font-size: 1.5em;
+    line-height: 1.2;
+    font-feature-settings: "dlig" 1;
+
 }
 
-blockquote cite {
-    display: block;
-    opacity: 0.8;
-    font-size: 0.875em;
+figcaption {
+    font-weight: 200;
+    /* font-size: 75%; */
+    margin: 1em 0;
 }
 
-blockquote cite:before {
-    content: "—";
-    margin-right: 0.25em;
-}
+/* GLOBAL MEDIA */
 
-/* GLOBAL HELPER CLASSES */
-/* .text-center {
-    text-align: center;
-} */
+/* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
 
-.full-width {
-    max-width: none;
-    width: 100%;
-}
-
-/* .horiz-center {
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-/* ----------------------------------------------- */
-/* LAUOUT & GRID  */
-/* ----------------------------------------------- */
-
-/* MEDIA QUERIES */
-/* phone -> tablet -> laptop -> desktop */
-@media ( min-width: 768px) {
-    /* TABLET SIZED STYLING GOES HERE */
-    body {
-        font-size: 100%;
-    }
-}
-
-@media ( min-width: 1050px) {
-    body {
-        font-size: 100%;    /* 16px */
-    }
-}
-
-@media ( min-width: 1250px) {
-    body {
-        font-size: 112.5%;  /* 18px */
-    }
-    .container {
-        max-width: 1200px;
-    }
-    .container-thumbgrid {
-        max-width: 90vw;
-    }
-}
-
-/* IMAGES */
-img {
+/* QUESTION: is video 100%??? */
+img, video {
     max-width: 100%;
     height: auto;
-}
-
-/* LAYOUT ---------- */ 
-/* CONTAINER */
-.container {
-    margin: 0 auto;
-    padding: 2% 0.5%;
-}
-
-.container-thumbgrid {
-    margin: 0 auto;
-    padding: 2% 4%;
-}
-
-.container-img {
+    display: block;
     margin: 0;
-    padding: 2%;
-    text-align: center;
+    padding: 0;
 }
 
-/* GRID SYSTEM */
-.row {
-    --gridgap: 4%;
-    --gridgap-half: calc( var(--gridgap) / 2);
-    padding-bottom: var(--gridgap);
-  }
-  
-  @media (min-width: 768px) {
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--gridgap);
-      padding: 0;
-      margin: var(--gridgap) 0;
+/* GLOBAL HELPERS */
+
+/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEARCH ENGINES */
+.hide-visually {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+@media (max-width: 767px) {
+    .hide-visually-smallonly {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
     }
-  
-    .row > * {
-      flex-grow: 1;
+}
+
+/* Align left/right/center */
+.align-right {
+    text-align: right;
+}
+
+/* QUESTION: why is this padding not working? */
+@media (max-width: 767px) {
+
+    .with-padding-top {
+        border: 2px solid red;
+        padding-top: 4em;
     }
-  
-    .row.swap {
-      flex-direction: row-reverse;
-    }
-  
-    .row .one-half { max-width: calc( 50% - var(--gridgap-half) ); }
-    .row .one-third { max-width: calc( 33.3333% - var(--gridgap-half) ); }
-    .row .two-thirds { max-width: calc( 66.6666% - var(--gridgap-half) ); }
     
 }
 
-.textblock {
-    margin: 0 0 3em 0;
+/* ------------------- */
+/* -----  LAYOUT ----- */
+/* ------------------- */
+
+/* RESPONSIVE TYPOGRAPHY VIA MEDIA QUERIES */
+
+/* SMALL SCREENS (Mobile , 767px) */
+body {
+    /* Set the default font size */
+    font-size: 87.5%; 
 }
 
-.textblock a:hover {
-    color: var(--my-green);
-    text-decoration: none;
-}
-
-/* PLACE SITE-ID LEFT AND NAV RIGHT ON LARGER SCREENS */
+/* MEDIUM SCREENS ( Tablets < 1200px ) */
 @media (min-width: 768px) {
-    .site-header .container {
-        /* by default, this is display: box; and since this is inside container, I just need to tell it the following: */
-        justify-content: space-around;
+    body {
+        /* Set the medium screens and higher font size to 16px */
+        font-size: 100%; 
     }
 }
 
-/* ----------------------------------------------- */
-/* UI COMPONENTS */
-/* ----------------------------------------------- */
+/* LARGE SCREENS ( Laptops & Desktop > 1200px ) */
 
-/* BUTTONS */
-.link-button {
-    background-color: var(--my-black60);
-    border-radius: 2px;
-    color: var(--my-white);
-    padding: 0.25em 1em;
+@media (min-width: 1200px) {
+    body {
+        /* Set the medium screens and higher font size to 16px */
+        /* font-size: 112.5%;  */
+        font-size: 100%; 
+    }
 }
 
-.link-button:hover {
-    background-color: var(--my-green);
-    color: var(--my-black);
+/* CONTAINER */
+.container {
+    /* SET THE MAX WIDTH OF YOUR SITE (eg 1200px) */
+    max-width: var(--container-width);
+
+    /* CENTER THE CONTAINER HORIZONTALLY*/
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ----------------------------------------------- */
-/* SITE STRUCTURE  */
-/* ----------------------------------------------- */
+/* GRID */
+.row {
+    --gridgap: 2em;
+}
 
-/* SITE HEADER & FOOTER */
+/* - All the children under row */
+.row > * {
+
+    /* - Setting bttom margin for each fraction */
+    margin-top: var(--gridgap);
+    margin-bottom: var(--gridgap);
+}
+
+@media (min-width: 768px) {
+
+    .row {
+        /* - Create grid in 12 columns, with equal fractions */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gridgap);
+    }
+
+    /* COMMONLY USED SEMANTIC COLUMN WIDTHS
+       - Setting size for each grid */
+    .one-half { grid-column: auto / span 6; }
+    .one-third { grid-column: auto / span 4; }
+    .two-thirds { grid-column: auto / span 8; }
+    .one-fourth { grid-column: auto / span 3; }
+    .three-fourths { grid-column: auto / span 9; }
+
+    /* - 12 Column Classes */
+    .col-1 {grid-column: auto / span 1; }
+    .col-2 {grid-column: auto / span 2; }
+    .col-3 {grid-column: auto / span 3; }
+    .col-4 {grid-column: auto / span 4; }
+    .col-5 {grid-column: auto / span 5; }
+    .col-6 {grid-column: auto / span 6; }
+    .col-7 {grid-column: auto / span 7; }
+    .col-8 {grid-column: auto / span 8; }
+    .col-9 {grid-column: auto / span 9; }
+    .col-10 {grid-column: auto / span 10; }
+    .col-11 {grid-column: auto / span 11; }
+    .col-12 {grid-column: auto / span 12; }
+
+    /*  - Centered columns */
+    .one-half.centered {grid-column: 4 / span 6; }
+    .one-third.centered {grid-column: 5 / span 4; } 
+    .two-thirds.centered {grid-column: 3 / span 8; } 
+
+    /* - Pushes */
+    .push-1 { grid-column-start: 2; }
+    .push-2 { grid-column-start: 3; }
+    .push-3 { grid-column-start: 4; }
+    .push-4 { grid-column-start: 5; }
+    .push-5 { grid-column-start: 6; }
+    .push-6 { grid-column-start: 7; }
+    .push-7 { grid-column-start: 8; }
+    .push-8 { grid-column-start: 9; }
+    .push-9 { grid-column-start: 10; }
+    .push-10 { grid-column-start: 11; }
+    .push-11 { grid-column-start: 12; }
+
+    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN  */
+    .row.swapped > *:first-child { order: 2; }
+    .row.swapped > *:last-child { order: 1; }
+
+}
+
+/* FOR DEMO PURPOSES */
+.demo > * {
+    background-color: #444;
+    padding: 1em;;
+    text-align: center;
+}
+
+/* ------------------- */
+/* -  SITE STRUCTURE - */
+/* ------------------- */
+
+/* SITE HEADER */
 .site-header {
-    padding: 1em 0 1em 0;
+    background-color: var(--color-siteheader-bg);
+    /* border: 1px solid  red; */
+    
+    /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
+    /* @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+    } */
+
+    /* ADD SOME GENERAL SPACING AROUND THE HEADER */
+    /* padding: var(--unit-medium); */
+    padding: var(--unit-small) 0;
+
+   /* REMOVE LINK UNDERLINES */
+    a {
+        text-decoration: none;
+    }
+    
+    /* SITE LOGO */
+    .site-logo {
+
+        /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            text-wrap: nowrap;
+        }
+
+        /* REMOVE THE SPACE UDER THE LOGO MARK */
+        img, svg {
+            display: block;
+        }
+
+    }
+
+    /* SITE-HEADER-NAV */
+    .site-header-nav {
+        ul {
+            /* REMOVE MARGINS & BULLETS FROM LIST */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
+        a {
+            display: block;
+            padding: 1em;
+        }
+
+    }
+
 }
 
-.site-footer {
-    padding: 6em 0 1em 0;
-}
-/* SITE ID */
-.site-header a {
-    color: var(--my-black);
+/* TOGGLE MENU */
+
+/*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
+.site-menu-button {
+    display: none;
 }
 
-.site-footer a {
-    color: var(--my-white);
-}
+.toggle-menu {
 
-.site-header a:hover,
-.site-footer a:hover {
-    color: var(--my-green);
-    text-decoration: none;
-}
+    --color-togglemenu-bg: black;
+    --color-togglemenu-text: white;
 
-.site-header,
-.site-footer {
-    background-color: transparent;
-    position: absolute;
-    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+    .site-menu-button {
+        display: block;
+        background-color: transparent;
+        border: 1px solid var(--color-siteheader-a);
+        color: var(--color-siteheader-a);
+        padding: .5em;
+        position: relative;
+        z-index: 100;
+        transition: .4s all ease-out;
+
+        /* RESET THE FONT SIZE */
+        font-size: inherit;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        /* ADD SUPPORT FOR NAVICON/HAMBURGER ICON */
+        &:has(svg) {
+
+            /* VERTICALLY ALIGN THE MENU TEXT W ICON */
+            display: flex;
+            align-content: center;
+            gap: var(--unit-small);
+
+            /* REMOVE BORDER */
+            border: none;
+            
+            /* SET TSVG COLOR */
+            svg {
+                fill: var(--color-siteheader-a);
+            }
+
+            /* ADD SUPPORT FOR SVG ANIMATION (">" MEANS "IMEDIATE CHILD") */
+            svg > * {
+                transition: .2s all ease-out;
+                transform-origin: center;
+            }
+
+        }
+    }
+
+    .site-menu {
+        /* SET COLOR TO TOGGLE MENU */
+        background-color: var(--color-togglemenu-bg);
+        color: var(--color-togglemenu-text);
+
+        position: fixed;
+        top: 0;
+        right: 0; 
+        z-index: 50;
+        width: 100%;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        transition: .4s all ease-out;
+
+        a {
+            color: var(--color-togglemenu-text);
+            padding: 2vh 2vw;
+        }
+
+    }
+
+    &[data-menustate="open"] {
+
+        /* CHANGE COLOR TO TOGGLE MENU COLORS */
+        --color-siteheader-a: var(--color-togglemenu-text);
+
+        /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
+        .site-menu-button {
+            position: fixed;
+            z-index: 100;
+        }
+
+        /* SHOW THE SITE MENU WHEN OPEN */
+        .site-menu {
+            transform: translateX(0);
+        }
+
+        /* ANIMATE THE NAVICON / HAMBURGER TO AN X */
+        .site-menu-button svg {
+
+            .simple-navicon-top {
+                /* transform: rotate(45deg); */
+                rotate: 45deg;
+                translate: -21% 25%;
+            }
+
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+
+            .simple-navicon-bottom {
+                rotate: -45deg;
+                translate: -21% -25%;
+            }
+
+        }
+
+    }
+
+    &[data-menustate="closed"] {
+
+        /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+        .site-menu {
+            transform: translateX(100%);
+        }
+    }
+
+    /* IF TOGGLE MENU DISPLAY LOGO LEFT AND MENU RIGHT ON ALL SCREENS */
+    .site-header:has(.toggle-menu) {
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
+    .site-logo {
+    /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
+    /* position: relative; */
     z-index: 100;
+    }
 }
+
+/* SITE MAIN */
+.site-main {
+    background-color: var(--color-body-bg);
+    position: relative;
+    z-index: 20;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    margin-bottom: -32px;
+    overflow: clip;
+}
+
+/* SECTIONS */
+section {
+    padding: var(--unit-large) var(--unit-medium);
+}
+
+/* HERO SECTION */
+.hero {
+    background-color: var(--color-hero-bg);
+    color: var(--color-hero-text);
+    display: block;
+    place-items: center;
+
+    /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
+    padding-top: calc(4em + var(--unit-large));
+
+    h1 {
+        font-size: 4em;
+        line-height: 1;
+        text-wrap: balance;
+    }
+
+    h1, h2, h3 {
+        color: var(--color-hero-headings);
+    }
+}
+
+/* SITE FOOTER */
+
+/* Links in class=reveal requires to be z-index:positive. 
+   This also goes with the visibility:hidden in the viewstate for "observe-me." 
+   "Observe-me" in the markup give access to controling the animation and visibility for hero image
+*/
+.site-footer.reveal {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
 .site-footer {
-    height: 80vh;
-    margin-top: -90px;
-    background-color: black;
-    color: var(--my-white);
-    border-top-right-radius: 50px;
-    border-top-left-radius: 50px;
-}
+    border-bottom: 8px solid var(--color-yellow);
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: calc( var(--unit-large) + 5% ) var(--unit-large);
+    height: 70vh;
+    z-index: 10;
 
-.row.footer {
-    margin-bottom: 8em;
-}
+    .on-hover {
+        border: 2px solid red;
+        opacity: 0;
+    }
 
-.social-links {
-    letter-spacing: 2px;
-}
+    /* QUESTION: How can I display an icon on-hover???  */
 
-/* ID AREA */
-.site-id {
-    font-size: 1.5em;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+    .social-links a:hover {
+        font-family: var(--font-serif-thinitalic);
+    }
+    
+    .social-links a:hover::after {
+        display: inline-block;
+    }
+    
+    .social-links a::after{
+        /* content: "";
+        background-image: url(../img/icon-newwindow.svg);
+        background-size: contain;
+        width: 1em;
+        height: 1em;
+        display: none; */
+
+        display: none;
+        content: "";
+        width: .8em;
+        height: .8em;
+        margin-left: 0.4em;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='blue' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    h2, h3 {
+        color: var(--color-footer-headings);
+        font-feature-settings: "dlig" 1;
+        font-weight: normal;
+        /* text-transform: uppercase; */
+    }
+
+    h2 {
+        font-family: var(--font-serif-regular);
+        font-size: 4vw;
+    }
+
+    h3 {
+        font-family: var(--font-serif-regularitalic);
+        font-size: 1.25em;
+    }
+
+    h3 ul {
+        font-family: var(--font-serif-thin);
+        list-style: none;
+    }
+
+    h3 ul li {
+        margin: .25em;
+    }
+
+    a{
+        color: var(--color-footer-a);
+        
+        &:hover {
+            color: var(--color-footer-a-hover);
+        }
+    }
+
 }
 
 /* SITE NAV */ 
 .site-nav {
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    /* margin: 0 auto;
+    width: 1200px; */
 }
 
 .site-nav ul {
-    width: 100%;
+    /* width: 100%; */
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .site-nav a {
-    padding: 1em;   
+    padding: .5em 1em;
+    text-decoration: none;   
 }
 
-/* SOCIAL NAV */ 
-.site-nav .menu-button {
-    display: none;
-}
 
-/* SECTIONS */
-.hero-home,
-.about-section {
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12em 0 12em 0;
-}
 
-/* HOME */
-.solid-view {
-    /* background-color:rgb(177, 177, 177); */
-    /* border: 2px solid blue; */
-    /* background-image:
-    radial-gradient(at 63% 84%, rgb(124 124 124 /1) 0px, transparent 50%),
-    radial-gradient(at 73% 34%, rgb(102, 90, 128) 0px, transparent 50%),
-    radial-gradient(at 47% 7%, rgb(119 137 137 /1) 0px, transparent 50%),
-    radial-gradient(at 81% 65%, rgb(139, 122, 106) 0px, transparent 50%),
-    radial-gradient(at 0% 40%, var(--my-green) 0px, transparent 50%),
-    radial-gradient(at 22% 59%, var(--my-magenta) 0px, transparent 50%);
-    background-size: 300% 300%;
-    animation: gradient 8s ease infinite; */
-}
+/* -------------------- */
+/* --  UI COMPONENTS -- */
+/* -------------------- */
 
-.solid-view,
-.solid-view-sub {
-    background-attachment: fixed;     /* this might not work on mobile */
-}
+.a-button {
+    /* SET THE BUTTON COLORS */
+    background-color: var(--color-body-bg);
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+    color: var(--color-a);
 
-@keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+    /* ENABLE BOX MODEL STYLING */
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin: var(--unit-small) 0;
 
-.parallax-view {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    /* GET RID OF THE UNDERLINE */
+    text-decoration: none;
 
-.hero-title {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    color: var(--my-black);
-    animation-name: fadein-up;
-    animation-duration: 2s;
-}
-
-@keyframes fadein-up {
-    0%    { opacity: 0;
-            transform: translateY(1em);}
-    /* 10%   { opacity: 0;} */
-    100% { opacity: 1;}
-}
-
-.hero-home .row {
-    width: 85%;
-}
-
-.hero-home .eyebrow-hero {
-    font-size: 1vw;
-    color: var(--my-white);
-    margin: 1em 0 0.5em 0;
-}
-
-.hero-home .title-home {
-    /* font-size: clamp(4em, 8vw, 8vw); */
-    font-size: 8vw;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.hero-home .hero-title h3 {
-    font-size: 1.8vw;
-}
-
-.title-sub {
-    font-size: 6em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0 0 .5em 0;
-}
-
-.hero-home .hero-title p {
-    /* font-size: 1em; */
-    /* font-size: clamp(12px, 1.5vw, 1.5vw ); */
-    font-size: 1.5vw;
-    line-height: 1.9vw;
-    /* font-weight: 200; */
-    margin-bottom: 2.2vw;
-    margin-top: 0.9vw;
-    /* margin-left: auto;
-    margin-right: auto; */
-}
-
-.hero-home .hero-title p span {
-    font-family: 'ppeditorialold-italic', Georgia, serif;
-    font-style: italic;
-}
-
-@media (max-width: 767px) {
-    
-    .hero-home .eyebrow-hero {
-        font-size: 1em;
+    + .button {
+        margin-left: var(--unit-small);
     }
 
-    .hero-home .title-home {
-        font-size: 6em;
+    &:hover {
+        color: var(--color-a-hover);
+        background-color: var(--color-blue);
+        border-color: var(--color-blue);
+
     }
 
-    .hero-home .hero-title h3 {
-        font-size: 1.3125em;
-    }
-    .hero-home .hero-title p {
-        font-size: 1em;
-        line-height: 1.4;
-        margin-top: 1em;
-        margin-bottom: 1em;
-   }
-}
+    /* LIGHT BUTTON VARIANT */
+    /* &.light {
+        border-color: var(--color-a-light);
+        background-color: var(--color-a-light);
+        color: var(--color-a-darker);
 
-@media (min-width: 768px) {
-    /* .works-index {
-        min-height: 100vh;
-        width: 100vw;
-        padding: 6em 0 6em 0;
+        &:hover {
+            border-color: var(--color-a-lighter);
+            background-color: var(--color-a-lighter);
+        }
     } */
+
 }
 
-/* THUMBGRID */
-.thumbgrid {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+/* -------------------- */
+/* --    ANIMATION   -- */
+/* -------------------- */
+
+/* ADD SUPPORT FOR SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
 }
 
-.thumbgrid li {
-    list-style: none;
-    /* width: 49.5%; */
-    padding-bottom: 0.8%;
-    margin-bottom: 2.5%;
-}
+/* [data-page-loaded="not-loaded"] .hero .observe-me {
+    transition-delay: 3s;
+} */
 
-@media (min-width: 768px) {
-    .thumbgrid li {
-        /* width: 32.75%;        three cards row */
-        width: 49.5%;         /* two cards row */
-        /* width: 45%;        two cards row */
-    }
-}
-
-.thumbgrid-card {
-    /* border: 1px solid blue; */
-    border-radius: 2.5%;
-    filter: brightness(.9);
-    overflow: hidden;
-    /* box-shadow: 0 4px 8px 0 var(--my-black20); */
-    transition: 0.3s;
-    /* margin: 30px auto;  */
-    /* width: 300px;
-    height: 600px; */
-    object-fit: cover;
-    cursor: pointer;
-    /* position: relative; */
-}
-
-.thumbgrid a img {
-    /* border: 1px solid red; */
-    display: grid;
-    transition: all ease-in-out 0.2s;
-    border: 1px solid rgb(255, 255, 255 /0);
-    /* max-height: 100%; */
-    width: 100%;
-    /* filter: brightness(.9); */
-}
-
-.thumbgrid-card:hover {
-    box-shadow: 0 0 24px 0 var(--my-black60);
-}
-
-.thumbgrid a:hover img {
-    filter: brightness(1.05);
-    border: 1px solid rgb(0, 0, 0 /.3);
-    transform: scale(1.05, 1.05);
-}
-
-/* CUSTOM CSS FOR ABOUT SECTION */
-.about {
-    animation: fadeandscaleIn 0.4s ease-out forwards;
-}
-
-@keyframes fadeandscaleIn {
-    0% {
-      transform: scale(0.97) translateY(-5px);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-    }
-  }
-
-.about a {
-    color: var(--my-black);
-}
-
-.column.two-thirds.about,
-.column.one-third.about {
-    text-align: left;
-    margin: 0;
-}
-
-.headline {
-    text-transform: uppercase;
-    max-width: 12ch;
-    margin: 0;
-    font-size: 4em;
-}
-
-.subhead {
-    max-width: 28ch;
-    margin-bottom: 1em;
-}
-
-.eyebrow,
-.eyebrow-hero {
-    text-transform: uppercase;
-    margin-bottom: 0;
-    color: var(--my-white);
-}
-
-.history {
-    margin: 0;
-    padding: 0;
-}
-
-.p-about {
-    font-size: 1.5em;
-    letter-spacing: 0px;
-    line-height: 1.3;
-    margin-bottom: 1em;
-}
 
 /* SCROLL TRIGGERED ANIMATION
  * corresponding with JS
  */
-
- .observe-me {
+.observe-me.fade-in {
     opacity: 0;
     transition: all .75s ease-out 0.5s;
 
@@ -684,8 +883,26 @@ img {
         opacity: 1;
     }
 }
-.animate-from-bottom {
-    translate: 0 400px;
+
+.animate-from-top {
+    translate: 0 -100px;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.animate-from-right {
+    translate: 20px 0;
+    transition-delay: .25s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.animate-from-left {
+    translate: -20px 0;
     transition-delay: .5s;
 
     &[data-viewstate="active"] {
@@ -693,57 +910,507 @@ img {
     }
 }
 
+.animate-from-bottom {
+    translate: 0 20px;
+    transition-delay: .5s;
 
-/* CUSTOM CSS FOR SUB PAGES */
-.title-subpage {
-    /* width: 100%; */
-    height: 30vh;
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.slide-up {
+    translate: 0 200px;
+    transition-delay: .5s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+/* QUESTION: how can I make this scaling up more visible? */
+.observe-me.scale-up {
+    scale: 0;
+    transition: all 3s ease-out 0.5s;
+
+    &[data-viewstate="active"] {
+        scale: 100%;
+    }
+
+}
+
+/* -------------------- */
+/* -- CUSTOM STYLING -- */
+/* -------------------- */
+
+/* CUSTOM STYLING FOR HOME */
+
+.frame {
+    border-radius: 32px;
+    padding: 8svh 8vw;
+    color: var(--color-black);
+}
+
+.frame-alt {
+    border-radius: 32px;
+    padding: 8svh 8vw;
+    border: 2px solid var(--color-yellow);
+}
+
+.frame .row,
+.frame-alt .row {
+    margin: 0;
+    padding: 0 0 5svh 0;
+}
+
+.frame .row .one-half {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-home .frame .eyebrow {
+    font-family: var(--font-body);
+    font-size: 1.5vw;
+    line-height: 1.2;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 1em 0 0.5em 0;
+}
+
+.hero-home .frame h2 {
+    color: var(--color-black);
+    margin: 0;
+    padding: 0;
+    font-size: 6.5vw;
+    line-height: 1;
+    text-transform: uppercase;
+    font-feature-settings: "dlig" 1;
+}
+
+.hero-home .frame h2 span {
+    text-transform: none;
+    font-weight: normal;
+    font-family: var(--font-serif-bolditalic);
+}
+
+.hero-home .frame p {
+    font-size: 1.5vw;
+    line-height: 1.9vw;
+    margin-top: 0;
+    margin-bottom: 1.2vw;
+    padding: 0;
+    /* margin-top: 0.9vw; */
+}
+
+.hero-home .frame a {
+    color: var(--color-a);
+
+    &:hover {
+        color: var(--color-blue);
+    }
+}
+
+.hero-home .frame h3 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-serif-regularitalic);
+    font-size: 2vw;
+    line-height: 1.2;
+    font-feature-settings: "dlig" 1;
+    /* color: var(--color-white); */
+}
+
+.load-expand {
+    position: relative;
+    background-color: transparent;
+    border: none;
+}
+
+.load-expand::after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    translate: 0 -50%;
+    background-color: var(--color-yellow);
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    /* padding: 0; */
+    margin-inline: auto;
+    interpolate-size: allow-keywords;
+    animation: load-expand 1s ease-out forwards; 
+}
+
+.load-expand > * {
+    opacity: 0;
+    position: relative;
+    z-index: 200;
+    /* display: none; */
+    /* scale: 0; */
+    animation: load-expand-content 1s ease-out forwards; 
+}
+
+@keyframes load-expand {
+
+    0% {
+        width: 10px;
+        height: 10px;
+        /* scale: 0; */
+        border-radius: 100%;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+
+    20% {
+        width: 200px;
+        height: 200px;
+        /* scale: 1; */
+        border-radius: 100%;
+        /* padding: 0; */
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+}
+
+@keyframes load-expand-content {
+
+    0% {
+        opacity: 0;
+    }
+
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Headings for each section in home page */
+#sandboxes h2,
+#about h2 {
+    /* text-transform: uppercase; */
+    font-feature-settings: "dlig" 1;
+    text-align: center;
+    font-size: 6em;
+    margin: 10vw auto;
+    padding: 10vw auto;
+}
+
+#sandboxes h2 {
+    z-index: -10;
+}
+
+/* Sandboxes bespoke grid */
+.sandboxes-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+/* Sandboxes bespoke layout using the above grid */
+.sandboxes-wrapper > *:nth-child(1) {
+    grid-column: 1 / span 6;
+    grid-row: 1 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(2) {
+    grid-column: 8 / span 5;
+    grid-row: 2 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(3) {
+    grid-column: 2 / span 4;
+    grid-row: 4 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(4) {
+    grid-column: 7 / span 6;
+    grid-row: 6 / span 2;
+}
+
+#sandboxes .container {
+    position: relative;
+}
+
+.fixed-title {
+    position: sticky;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: -1;
+}
+
+
+.card {
+    border-radius: 5%;
+    filter: brightness(.9);
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+
+    /* &:hover {
+        box-shadow: 0 0 24px 0 var(--color-black);
+    } */
+
+}
+
+.card img {
+    display: block;
+
+    /* For cases that images are in different shapes or the parent dictate the shape of cards */
+    /* object-fit: cover;
+    width: 100%;
+    height: 100%; */
+
+    /* QUESTION: How can I switch to video on hover? */
+    &:hover {
+        filter: brightness(1.2);
+        border: 1px solid rgb(0, 0, 0 /.3);
+        transform: scale(1.05, 1.05);
+    }
+}
+
+
+/* ABOUT SECTION TYPOGRAPHY & LAYOUT*/
+
+#about h2 {
+    mix-blend-mode: overlay;
+    /* mix-blend-mode: difference; */
+    /* z-index: 100; */
+}
+
+#about h2,
+#about h3,
+#about h4,
+#about p,
+#about dl {
+    color: var(--color-white);
+}
+
+#about h3 {
+    font-weight: normal;
+    font-size: 2.5em;
+    /* padding: 0; */
+    margin: 0;
+}
+
+#about h4 {
+    /* border: 2px solid red; */
+    font-weight: 600;
+    margin: 0;
+    
+}
+
+#about .textwrapper {
+    margin-bottom: 2em;
+}
+
+#about p {
+    margin: .5em 0 0 0;
+}
+
+#about dl {
+    margin: .5em 0 2.5em 0;
+}
+
+#about dt {
+    margin: .5em 0 0 0; 
+}
+
+#about dd {
+    margin: 0 0 .25em 0; 
+    padding: 0 0 0 .75em;
+    font-weight: 200;   
+}
+
+#about a {
+    color: var(--color-a);
+
+    &:hover {
+        color: var(--color-a-hover);
+    }
+}
+
+#about .two-thirds h2 {
+    text-align: left;
+    margin: 0 var(--unit-small) 0;
+    padding: 0;
+}
+
+#about .one-third p {
+    /* font-size: 1.5em; */
+        /* line-height: 1.3; */
+    /* letter-spacing: 0px; */
+    margin-bottom: 1em;
+}
+
+/* CUSTOM STYLING FOR SUBPAGES */
+.casestudy {
+    background-color: var(--color-body-bg);
+    padding-top: calc(var(--unit-small) / 2);
+    padding-bottom: 50svh;
+
+    /* QUESTION: how can I add filter background drop to hero? */
+    /* background-color: transparent; */
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(5px); */
+}
+
+.casestudy .row {
+    margin: calc(var(--unit-large) / 2) 0 calc(var(--unit-large) * 2) 0;
+}
+
+.casestudy .container:has(.video-wrapper) {
+    padding-bottom: var(--unit-large);
+}
+
+.casestudy .frame {
+    margin: 0;
+    padding: 3svh;
+}
+
+.h2-wrapper {
+    height: 20svh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16em 0 8em 0;
-    margin: auto;
+    margin: var(--unit-medium);
     text-align: center;
     color: var(--my-black);
     animation-name: fadein-up;
     animation-duration: 2s;
+    mix-blend-mode: difference;
+    z-index: 30;
+    position: relative;
+}
+
+.hero-sub h2 {
+    text-transform: uppercase;
+    font-family: var(--font-serif-bold);
+    font-weight: normal;
+    font-feature-settings: "dlig" 1;
+    font-size: 3.75em;
+    line-height: 1;
 }
 
 @media ( max-width: 767px ) {
-    .title-subpage {
+    .h2-wrapper {
         width: 100%;
-        height: 50vh;
+        height: 85vh;
         padding: 24em 4em;
     }
 }
 
-#content {
-    /* QUESTION: how can I add filter background drop to hero? */
-    background-color: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-.project-title {
+.casestudy h2, h5 {
     text-transform: uppercase;
+    margin: 0;
 }
 
+.casestudy h2, h3 {
+    font-feature-settings: "dlig" 1;
+}
+
+.casestudy h3 {
+    font-family: var(--font-serif-regularitalic);
+}
+
+.casestudy h4 {
+    font-size: 1em;
+    margin: 0;
+
+    /* baseline with h2(2em) */
+    padding: 1em 0 0 0;
+}
+
+.container-img {
+    /* border: 2px solid red; */
+    display: grid;
+    place-items: center;
+    width: 100wv;
+    padding: 0;
+    margin: 4em 0;
+}
+
+.container-img img {
+    width: 100%;
+}
+
+.inspo-source {
+    padding: 0 1em;
+}
+
+figure {
+    padding: 4em 0 0 0;
+    margin: 0;
+}
+
+.video-wrapper {
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.button-wrapper {
+    margin: 6em 0 1em 0;
+    display: grid;
+    place-items: center;
+}
+
+/* QUESTION: why is the border radius unvisible? */
 .img-wrapper {
-    margin: 2em 0;
+    /* margin: 2em 0; */
+    border-radius: 8px;
+    max-width: 100%;
+    margin: .5em 0;
 }
 
-.work-story {
-    margin: 8em 0;
+.hero-sub {
+    margin: 0;
+    padding: 0;
+    min-height: 100svh;
 }
 
-.solid-view-sub {
+/* ANIMATION FOR HERO */
+.site-main:has(.casestudy.observe-me[data-viewstate = 'active']) .fixed-hero {
+    /* border: 2px solid green; */
+    top: 0;
+    scale: 105%;
+    rotate: 1deg;
+    z-index: -10;
+}
+
+.site-main:has(.hero-sub.observe-me[data-viewstate = 'inactive']) .fixed-hero {
+    visibility: hidden;
+}
+
+.fixed-hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     width: auto;
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
+
+    transition: all 1s ease-out;
+    position: fixed;
+
+    top: 30vh;
 }
 
 .project-metadata {
@@ -753,8 +1420,8 @@ img {
     padding-left: 0.25em;
 }
 
-.work-story .one-half ul,
-.work-story .one-third ul {
+.case-study .one-half ul,
+.case-study .one-third ul {
     font-size: 0.75em;   /* 12px */
     font-weight: 200;
     margin: 1em 0;
@@ -763,85 +1430,7 @@ img {
     list-style-position: outside;
 }
 
-/* QUESTION: how can I make the image responsive in different sizes? */
-/* @media ( min-width: 768px ) {
-    .solid-view-sub {
-        background-size: cover;
-    }
-} */
 
-.solid-view-type {
-    background-image: url(../work_01-typeandprotocol/img/typeandprotocol-hero-3300x2550.jpg);
-}
-
-.solid-view-hspl {
-    background-image: url(../work_02-hspl/img/hspl-mock-hero-1600x900.jpg);
-}
-
-.solid-view-criminal {
-    background-image: url(../work_03-criminalspinoff/img/criminal-hero.jpg);
-}
-
-.solid-view-fujita {
-    background-image: url(../work_04-sneilfujita/img/fujita_hero_1920x1440.jpg);
-}
-
-/* TOGGLE NAV ---------- */ 
-@media ( max-width: 767px) {
-    .toggle-nav .site-id {
-        position: absolute;
-    }
-    .toggle-nav .site-nav {
-        text-align: right;
-    }
-    .toggle-nav .site-nav .menu-button {
-        display: inline-block;
-        cursor: pointer;
-        padding: .3em 0;
-        margin: .8em 0;
-        border: none;
-        background: none;
-    }
-    .toggle-nav .site-nav .menu-button::selection {
-        background: rgb(255 255 255 /0);
-    }
-    .toggle-nav .site-nav ul {
-        display: block;
-        text-align: center;
-        transition: all .4s ease-out;  /* .4s is the slowest */
-    }
-    .toggle-nav .site-nav a:hover {
-        background: var(--my-green);
-        color: var(--my-black);
-    }
-    .toggle-nav[data-navstate="closed"] ul {
-        max-height: 0;
-        overflow: hidden;
-    }
-    .toggle-nav[data-navstate="open"] ul {
-        max-height: 100vh;
-        overflow: visible;
-    }
-
-    /* NAVICON */
-    .toggle-nav .site-nav .menu-button.navicon {
-        border: none;
-        color: rgb(255 255 255 /0);
-        padding: 0;
-    }
-    .toggle-nav .site-nav .menu-button.navicon::after {
-        content: "\2630";
-        display: inline-block;
-        padding: 0 .4em;
-        margin: 0;
-        color: rgb(0 0 0 /.8);
-        font-size: 1.5em;
-    }
-
-    .toggle-nav[data-navstate="open"] .site-nav .menu-button.navicon::after {
-        content: "\2715";
-    }
-}
 
 /* FOR DEV PURPOSES ONLY */
 /*  Small (Mobile) Screen => ( max-width: 768px )
@@ -850,9 +1439,24 @@ img {
     Extra Large (Desktop) Screen 1250px + => ( min-width: 1250px)
 */
 
-/* FOR DEV TESTING PURPOSES ONLY */
+/* FOR DEV TESTING PURPOSES ONLY: light */
 /* body *, *:before, *:after {
     background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
+    color: rgba(0,0,0,.5) !important;
+}
+
+img, svg, canvas, video, iframe {
+    filter: grayscale(100%) brightness(0%) opacity(5%) !important;
+    background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+} */
+
+
+/* FOR DEV TESTING PURPOSES ONLY: dark */
+/* body *, *:before, *:after {
+    background-color: rgba(255,255,255,.05) !important;
     background-image: none !important;
     border: 1px solid rgba(0,0,0,.1) !important;
     color: rgba(0,0,0,.5) !important;
