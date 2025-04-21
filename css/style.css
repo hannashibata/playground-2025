@@ -108,7 +108,11 @@ CSS TABLE OF CONTENTS
     --color-white85: rgb(245 245 238 / .85);
     --color-yellow: rgb(255 238 0 /1);
     --color-blue: rgb(0 17 255 /1);
-    /* blue:#0011ff yellow:#FFEE00; */
+    /* white: #F5F5EE
+     * black: #191919
+     * yellow: #FFEE00
+     * blue: #0011ff 
+     */
 
 
     /* Dark mode */
