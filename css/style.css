@@ -153,7 +153,7 @@ CSS TABLE OF CONTENTS
     --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
     --font-serif-thin: 'ppeditorial-old-thin', 'Georgia', serif;
     --font-serif-thinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
-    --font-body: "Karla", system-ui, "Helvetica", "Arial";
+    --font-sansserif: "Karla", system-ui, "Helvetica", "Arial";
 
     /* SIZING UNITS */
     /* --container-width: 1200px; */
@@ -205,7 +205,7 @@ a {
 body {
 
     /* SET THE FONT FOR ALL MAIN BODY TEXT */
-    /* font-family: var(--font-body); */
+    /* font-family: var(--font-sansserif); */
 
     /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
     line-height: 1.4;
@@ -240,7 +240,7 @@ h3 {
 h4 {
     font-size: 1.25em;
     line-height: 1.2;
-    font-family: var(--font-body);
+    font-family: var(--font-sansserif);
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -252,7 +252,7 @@ dl {
 }
 
 dt {
-    /* font-family: var(--font-body); */
+    /* font-family: var(--font-sansserif); */
     /* font-weight: 600; */
     font-family: var(--font-serif-regular);
     font-feature-settings: "dlig" 1;
@@ -260,7 +260,7 @@ dt {
 
 dd {
     /* border: 2px solid red; */
-    font-family: var(--font-body); 
+    font-family: var(--font-sansserif); 
     font-weight: 400;
     line-height: 1.1;
 }
@@ -973,7 +973,7 @@ html {
 }
 
 .hero-home .frame .eyebrow {
-    font-family: var(--font-body);
+    font-family: var(--font-sansserif);
     font-size: 1.5vw;
     line-height: 1.2;
     font-weight: 300;
@@ -1104,18 +1104,20 @@ html {
 
 /* Headings for each section in home page */
 #sandboxes h2,
-#about h2 {
+#brief h2,
+.about h2 {
     /* text-transform: uppercase; */
     font-feature-settings: "dlig" 1;
     text-align: center;
     font-size: 6em;
     margin: 10vw auto;
     padding: 10vw auto;
-}
-
-#sandboxes h2 {
     z-index: -10;
 }
+
+/* #sandboxes h2 {
+    z-index: -10;
+} */
 
 /* Sandboxes bespoke grid */
 .sandboxes-wrapper {
@@ -1145,7 +1147,8 @@ html {
     grid-row: 6 / span 2;
 }
 
-#sandboxes .container {
+#sandboxes .container,
+.about .container {
     position: relative;
 }
 
@@ -1155,7 +1158,6 @@ html {
     translate: 0 -50%;
     z-index: -1;
 }
-
 
 .card {
     border-radius: 5%;
@@ -1187,59 +1189,78 @@ html {
 }
 
 
-/* ABOUT SECTION TYPOGRAPHY & LAYOUT*/
-
-#about h2 {
+/* BRIEF SECTION TYPOGRAPHY & LAYOUT*/
+#brief h2,
+.about h2 {
     mix-blend-mode: overlay;
     /* mix-blend-mode: difference; */
     /* z-index: 100; */
 }
 
-#about h2,
-#about h3,
-#about h4,
-#about p,
-#about dl {
+#brief h3 {
+    font-family: var(--font-sansserif);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+#brief p {
+    font-family: var(--font-serif-regular);
+    font-size: 2em;
+    line-height: 1.3;
+    margin: 0 0 1em 0;
+}
+
+#brief p span {
+    font-family: var(--font-serif-regularitalic);
+}
+
+
+/* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
+.about h2,
+.about h3,
+.about h4,
+.about p,
+.about dl {
     color: var(--color-white);
 }
 
-#about h3 {
+.about h3 {
     font-weight: normal;
     font-size: 2.5em;
     /* padding: 0; */
     margin: 0;
 }
 
-#about h4 {
+.about h4 {
     /* border: 2px solid red; */
     font-weight: 600;
     margin: 0;
     
 }
 
-#about .textwrapper {
+.about .textwrapper {
     margin-bottom: 2em;
 }
 
-#about p {
+.about p {
     margin: .5em 0 0 0;
 }
 
-#about dl {
+.about dl {
     margin: .5em 0 2.5em 0;
 }
 
-#about dt {
+.about dt {
     margin: .5em 0 0 0; 
 }
 
-#about dd {
+.about dd {
     margin: 0 0 .25em 0; 
     padding: 0 0 0 .75em;
     font-weight: 200;   
 }
 
-#about a {
+.about a {
     color: var(--color-a);
 
     &:hover {
@@ -1247,13 +1268,13 @@ html {
     }
 }
 
-#about .two-thirds h2 {
+.about .two-thirds h2 {
     text-align: left;
     margin: 0 var(--unit-small) 0;
     padding: 0;
 }
 
-#about .one-third p {
+.about .one-third p {
     /* font-size: 1.5em; */
         /* line-height: 1.3; */
     /* letter-spacing: 0px; */
