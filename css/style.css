@@ -826,11 +826,12 @@ section {
 /* -------------------- */
 
 .a-button {
-    /* SET THE BUTTON COLORS */
-    background-color: var(--color-body-bg);
+    /* BUTTON ON DARK */
+    background-color: transparent;
     border: 2px solid var(--color-white);
     border-radius: 4px;
     color: var(--color-a);
+    text-transform: uppercase;
 
     /* ENABLE BOX MODEL STYLING */
     display: inline-block;
@@ -851,17 +852,16 @@ section {
 
     }
 
-    /* LIGHT BUTTON VARIANT */
-    /* &.light {
-        border-color: var(--color-a-light);
-        background-color: var(--color-a-light);
-        color: var(--color-a-darker);
+    /* BUTTON ON LIGHT*/
+    &.onlight {
+        border-color: var(--color-a-alt);
+        color: var(--color-a-alt);
 
         &:hover {
-            border-color: var(--color-a-lighter);
-            background-color: var(--color-a-lighter);
+            border-color: var(--color-blue);
+            color: var(--color-yellow);
         }
-    } */
+    }
 
 }
 
@@ -936,7 +936,6 @@ html {
     }
 }
 
-/* QUESTION: how can I make this scaling up more visible? */
 .observe-me.scale-up {
     scale: 0;
     transition: all 3s ease-out 0.5s;
@@ -1076,8 +1075,6 @@ html {
     opacity: 0;
     position: relative;
     z-index: 200;
-    /* display: none; */
-    /* scale: 0; */
     animation: load-expand-content 1s ease-out forwards; 
 }
 
@@ -1154,52 +1151,49 @@ html {
 } */
 
 /* Sandboxes bespoke grid */
-.sandboxes-wrapper {
+.cards-wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
 }
 
 /* Sandboxes bespoke layout using the above grid */
-.sandboxes-wrapper > *:nth-child(1) {
+.cards-wrapper > *:nth-child(1) {
     grid-column: 1 / span 6;
     grid-row: 1 / span 2;
 }
 
-.sandboxes-wrapper > *:nth-child(2) {
+.cards-wrapper > *:nth-child(2) {
     grid-column: 8 / span 5;
     grid-row: 2 / span 2;
 }
 
-.sandboxes-wrapper > *:nth-child(3) {
+.cards-wrapper > *:nth-child(3) {
     grid-column: 2 / span 4;
     grid-row: 4 / span 2;
 }
 
-.sandboxes-wrapper > *:nth-child(4) {
+.cards-wrapper > *:nth-child(4) {
     grid-column: 7 / span 6;
     grid-row: 6 / span 2;
 }
 
-.about-page .sandboxes-wrapper {
-    border: 2px solid red;
+.about-page .cards-wrapper {
+    margin: calc(var(--unit-large)  * 4) 0;
     grid-template-rows: repeat(9, auto);
 }
 
-.about-page .sandboxes-wrapper > *:nth-child(1) {
-    border: 2px solid red;
+.about-page .cards-wrapper > *:nth-child(1) {
     grid-column: 1 / span 5;
     grid-row: 1 / span 2;
 }
 
-.about-page .sandboxes-wrapper > *:nth-child(2) {
-    border: 2px solid red;
+.about-page .cards-wrapper > *:nth-child(2) {
     grid-column: 8 / span 5;
     grid-row: 2 / span 3;
 }
 
-.about-page .sandboxes-wrapper > *:nth-child(3) {
-    border: 2px solid red;
+.about-page .cards-wrapper > *:nth-child(3) {
     grid-column: 2 / span 5;
     grid-row: 5 / span 2;
 }
@@ -1271,15 +1265,9 @@ html {
     font-family: var(--font-serif-regularitalic);
 }
 
+/* CUSTOM STYLING FOR SUBPAGES */
 
 /* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
-/* .about h2,
-.about h3,
-.about h4,
-.about p,
-.about dl {
-    color: var(--color-white);
-} */
 .about {
     color: var(--color-white);
 }
@@ -1298,17 +1286,17 @@ html {
     
 }
 
-.about .textwrapper {
+/* .about .textwrapper {
     margin-bottom: 2em;
-}
+} */
 
-.about p {
+/* .about p {
     margin: .5em 0 0 0;
-}
+} */
 
-.about dl {
+/* .about dl {
     margin: .5em 0 2.5em 0;
-}
+} */
 
 .about dt {
     margin: .5em 0 0 0; 
@@ -1320,32 +1308,10 @@ html {
     font-weight: 200;   
 }
 
-/* .about a {
-    color: var(--color-a);
-
-    &:hover {
-        color: var(--color-a-hover);
-    }
-} */
-
-.about .two-thirds h2 {
-    text-align: left;
-    margin: 0 var(--unit-small) 0;
-    padding: 0;
-}
-
-.about .one-third p {
-    /* font-size: 1.5em; */
-        /* line-height: 1.3; */
-    /* letter-spacing: 0px; */
-    margin-bottom: 1em;
-}
-
-/* CUSTOM STYLING FOR SUBPAGES */
 .casestudy {
     background-color: var(--color-body-bg);
     padding-top: calc(var(--unit-small) / 2);
-    padding-bottom: 50svh;
+    padding-bottom: 15svh;
 
     /* QUESTION: how can I add filter background drop to hero? */
     /* background-color: transparent; */
