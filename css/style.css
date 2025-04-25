@@ -110,7 +110,7 @@ CSS TABLE OF CONTENTS
     --color-blue: rgb(0 17 255 /1);
     /* white: #F5F5EE
      * black: #191919
-     * yellow: #FFEE00
+     * yellow: #FFEE00 / oklch(0.93 0.2269 104.32)
      * blue: #0011ff 
      */
 
@@ -726,13 +726,6 @@ section {
     height: 70vh;
     z-index: 10;
 
-    .on-hover {
-        border: 2px solid red;
-        opacity: 0;
-    }
-
-    /* QUESTION: How can I display an icon on-hover???  */
-
     .social-links a:hover {
         font-family: var(--font-serif-thinitalic);
     }
@@ -1078,23 +1071,26 @@ html {
     animation: load-expand-content 1s ease-out forwards; 
 }
 
+/* REFACTOR: make it look more cool */
+
 @keyframes load-expand {
 
     0% {
         width: 10px;
-        height: 10px;
-        /* scale: 0; */
-        border-radius: 100%;
-        /* padding: 0; */
-        /* margin-inline: auto; */
+        height: 1px;
+        border-radius: 0;
     }
 
-    20% {
-        width: 200px;
-        height: 200px;
-        /* scale: 1; */
-        border-radius: 100%;
-        /* padding: 0; */
+    25% {
+        width: 100%;
+        height: 1px;
+        border-radius: 0;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
     }
 
     100% {
@@ -1113,7 +1109,7 @@ html {
     }
 
 
-    99% {
+    90% {
         opacity: 0;
     }
 
@@ -1208,6 +1204,11 @@ html {
     top: 50%;
     translate: 0 -50%;
     z-index: -1;
+}
+
+/* this is for about page. */
+.fixed-title.on-top {
+    top: 20%;
 }
 
 .card {
