@@ -333,7 +333,6 @@ img, video {
 @media (max-width: 767px) {
 
     .with-padding-top {
-        border: 2px solid red;
         padding-top: 4em;
     }
     
@@ -1105,8 +1104,6 @@ html {
         width: 100%;
         height: 100%;
         border-radius: 32px;
-        /* padding: 0; */
-        /* margin-inline: auto; */
     }
 }
 
@@ -1140,21 +1137,6 @@ html {
     padding: 10vw auto;
     z-index: -10;
 }
-
-/* .about-page .frame {
-    background-color: var(--color-yellow);
-    color: var(--color-black);
-} */
-
-
-/* .about-page .frame .text-wrapper {
-    color: var(--color-black);
-} */
-
-
-/* #sandboxes h2 {
-    z-index: -10;
-} */
 
 /* Sandboxes bespoke grid */
 .cards-wrapper {
@@ -1256,7 +1238,6 @@ html {
 .about h2 {
     mix-blend-mode: overlay;
     /* mix-blend-mode: difference; */
-    /* z-index: 100; */
 }
 
 #brief h3 {
@@ -1297,18 +1278,6 @@ html {
     
 }
 
-/* .about .textwrapper {
-    margin-bottom: 2em;
-} */
-
-/* .about p {
-    margin: .5em 0 0 0;
-} */
-
-/* .about dl {
-    margin: .5em 0 2.5em 0;
-} */
-
 .about dt {
     margin: .5em 0 0 0; 
 }
@@ -1323,11 +1292,6 @@ html {
     background-color: var(--color-body-bg);
     padding-top: calc(var(--unit-small) / 2);
     padding-bottom: 15svh;
-
-    /* QUESTION: how can I add filter background drop to hero? */
-    /* background-color: transparent; */
-    /* -webkit-backdrop-filter: blur(5px); */
-    /* backdrop-filter: blur(5px); */
 }
 
 .casestudy .row {
