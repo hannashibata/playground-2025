@@ -309,11 +309,13 @@ img, video {
 /* GLOBAL HELPERS */
 
 /* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEARCH ENGINES */
+/* Refactor-low: add this to figcaption for videos/images if needed. */
 .hide-visually {
     position: absolute;
     top: -9999px;
     left: -9999px;
 }
+
 
 @media (max-width: 767px) {
     .hide-visually-smallonly {
@@ -1197,11 +1199,6 @@ html {
     z-index: -1;
 }
 
-/* this is for about page. */
-.fixed-title.on-top {
-    top: 20%;
-}
-
 .card {
     border-radius: 5%;
     filter: brightness(.9);
@@ -1215,21 +1212,38 @@ html {
 
 }
 
-.card img {
+/* Placing two images/videos on top of another. */
+.card img, 
+.card video {
     display: block;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
     /* For cases that images are in different shapes or the parent dictate the shape of cards */
     /* object-fit: cover;
     width: 100%;
     height: 100%; */
+}
 
-    /* QUESTION: How can I switch to video on hover? */
-    &:hover {
-        filter: brightness(1.2);
-        border: 1px solid rgb(0, 0, 0 /.3);
-        transform: scale(1.05, 1.05);
+.card img {
+    position: relative;
+    z-index: 10;
+}
+
+.card a:has(img + video) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    &:hover img {
+        opacity: 0;
     }
 }
+
+
 
 
 /* BRIEF SECTION TYPOGRAPHY & LAYOUT*/
@@ -1259,8 +1273,14 @@ html {
 /* CUSTOM STYLING FOR SUBPAGES */
 
 /* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
+
 .about {
     color: var(--color-white);
+}
+
+/* Adjust the layout for the fixed h2 */
+.fixed-title.on-top {
+    top: 20%;
 }
 
 .about h3 {
