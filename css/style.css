@@ -298,7 +298,6 @@ figcaption {
 
 /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
 
-/* QUESTION: is video 100%??? */
 img, video {
     max-width: 100%;
     height: auto;
@@ -1360,6 +1359,11 @@ html {
     padding: 1em 0 0 0;
 }
 
+.casestudy .frame h4,
+.casestudy .frame-alt h4 {
+    padding-top: .5em;
+}
+
 .container-img {
     /* border: 2px solid red; */
     display: grid;
@@ -1416,7 +1420,7 @@ figure {
     /* border: 2px solid green; */
     top: 0;
     scale: 105%;
-    rotate: 1deg;
+    rotate: 10deg;
     z-index: -10;
 }
 
@@ -1429,7 +1433,9 @@ figure {
     justify-content: center;
     align-items: center;
     height: 70vh;
-    width: auto;
+
+    /* Whenever the parent is displa:flex, width is determined by children */
+    width: 100%;
     background-size: 100%;
     background-position: center;
 
@@ -1437,6 +1443,13 @@ figure {
     position: fixed;
 
     top: 30vh;
+}
+
+/* Keep the hero image and video in full-width in large screens */
+.fixed-hero video, 
+.fixed-hero img {
+    max-width: none;
+    width: 100%;
 }
 
 .project-metadata {
