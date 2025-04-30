@@ -770,16 +770,16 @@ section {
         font-size: 1.25em;
     }
 
-    h3 ul {
+    .social-links {
         font-family: var(--font-serif-thin);
         list-style: none;
     }
 
-    h3 ul li {
+    ul li {
         margin: .25em;
     }
 
-    a{
+    a {
         color: var(--color-footer-a);
         
         &:hover {
