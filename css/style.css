@@ -1140,49 +1140,49 @@ html {
 }
 
 /* Sandboxes bespoke grid */
-.cards-wrapper {
+.thumbnails-wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
 }
 
 /* Sandboxes bespoke layout using the above grid */
-.cards-wrapper > *:nth-child(1) {
+.thumbnails-wrapper > *:nth-child(1) {
     grid-column: 1 / span 6;
     grid-row: 1 / span 2;
 }
 
-.cards-wrapper > *:nth-child(2) {
+.thumbnails-wrapper > *:nth-child(2) {
     grid-column: 8 / span 5;
     grid-row: 2 / span 2;
 }
 
-.cards-wrapper > *:nth-child(3) {
+.thumbnails-wrapper > *:nth-child(3) {
     grid-column: 2 / span 4;
     grid-row: 4 / span 2;
 }
 
-.cards-wrapper > *:nth-child(4) {
+.thumbnails-wrapper > *:nth-child(4) {
     grid-column: 7 / span 6;
     grid-row: 6 / span 2;
 }
 
-.about-page .cards-wrapper {
+.about-page .thumbnails-wrapper {
     margin: calc(var(--unit-large)  * 4) 0;
     grid-template-rows: repeat(9, auto);
 }
 
-.about-page .cards-wrapper > *:nth-child(1) {
+.about-page .thumbnails-wrapper > *:nth-child(1) {
     grid-column: 1 / span 5;
     grid-row: 1 / span 2;
 }
 
-.about-page .cards-wrapper > *:nth-child(2) {
+.about-page .thumbnails-wrapper > *:nth-child(2) {
     grid-column: 8 / span 5;
     grid-row: 2 / span 3;
 }
 
-.about-page .cards-wrapper > *:nth-child(3) {
+.about-page .thumbnails-wrapper > *:nth-child(3) {
     grid-column: 2 / span 5;
     grid-row: 5 / span 2;
 }
@@ -1199,7 +1199,7 @@ html {
     z-index: -1;
 }
 
-.card {
+.thumbnail {
     border-radius: 5%;
     filter: brightness(.9);
     overflow: hidden;
@@ -1213,8 +1213,8 @@ html {
 }
 
 /* Placing two images/videos on top of another. */
-.card img, 
-.card video {
+.thumbnail img, 
+.thumbnail video {
     display: block;
     grid-column: 1;
     grid-row: 1;
@@ -1228,12 +1228,12 @@ html {
     height: 100%; */
 }
 
-.card img {
+.thumbnail img {
     position: relative;
     z-index: 10;
 }
 
-.card a:has(img + video) {
+.thumbnail a:has(img + video) {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -1242,8 +1242,6 @@ html {
         opacity: 0;
     }
 }
-
-
 
 
 /* BRIEF SECTION TYPOGRAPHY & LAYOUT*/
@@ -1339,6 +1337,13 @@ html {
     mix-blend-mode: difference;
     z-index: 30;
     position: relative;
+}
+
+/* Question: how can I override blend-mode? 
+Are there better way to show the title? */
+.no-blend {
+    /* border: 2px solid red; */
+    mix-blend-mode: normal;
 }
 
 .hero-sub h2 {
