@@ -1147,6 +1147,7 @@ html {
 }
 
 /* Sandboxes bespoke layout using the above grid */
+/* QUESTION: what is the best way to make the thumbnails rectangular? */
 .thumbnails-wrapper > *:nth-child(1) {
     grid-column: 1 / span 6;
     grid-row: 1 / span 2;
@@ -1492,6 +1493,20 @@ figure {
     padding-left: 1em;
     max-width: 38em;
     list-style-position: outside;
+}
+
+.user-persona {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    height: 20em;
+    border-radius: 32px;
+    padding: 2em;
+
+}
+
+.user-persona h4 {
+    margin: 0;
+    padding: 0;
 }
 
 
