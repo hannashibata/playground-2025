@@ -1498,15 +1498,25 @@ figure {
 .user-persona {
     background-color: var(--color-white);
     color: var(--color-black);
-    height: 20em;
-    border-radius: 32px;
+    /* height: 40em; */
+    border-radius: 8px;
     padding: 2em;
+    display: grid;
+    place-items: center;
+}
 
+.text-wrapper {
+    margin: 2em auto;
 }
 
 .user-persona h4 {
-    margin: 0;
+    margin: .25em 0;
     padding: 0;
+}
+
+.user-persona h4 span {
+    font-family: var(--font-serif-bolditalic);
+    text-transform: none;
 }
 
 
