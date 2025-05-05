@@ -1215,7 +1215,8 @@ html {
 }
 
 .thumb-explainer {
-    text-transform: uppercase;
+    font-weight: 300;
+    /* text-transform: uppercase; */
     /* text-align: right; */
 }
 
