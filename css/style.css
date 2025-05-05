@@ -1139,14 +1139,14 @@ html {
     z-index: -10;
 }
 
-/* Sandboxes bespoke grid */
+/* Sandboxes & About page bespoke grid */
 .thumbnails-wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
 }
 
-/* Sandboxes bespoke layout using the above grid */
+/* Sandboxes thumbs bespoke layout using the above grid */
 /* QUESTION: what is the best way to make the thumbnails rectangular? */
 .thumbnails-wrapper > *:nth-child(1) {
     grid-column: 1 / span 6;
@@ -1159,15 +1159,16 @@ html {
 }
 
 .thumbnails-wrapper > *:nth-child(3) {
-    grid-column: 2 / span 4;
+    grid-column: 2 / span 5;
     grid-row: 4 / span 2;
 }
 
 .thumbnails-wrapper > *:nth-child(4) {
-    grid-column: 7 / span 6;
+    grid-column: 6 / span 4;
     grid-row: 6 / span 2;
 }
 
+/* About page thumbs bespoke layout using the above grid */
 .about-page .thumbnails-wrapper {
     margin: calc(var(--unit-large)  * 4) 0;
     grid-template-rows: repeat(9, auto);
@@ -1211,6 +1212,11 @@ html {
         box-shadow: 0 0 24px 0 var(--color-black);
     } */
 
+}
+
+.thumb-explainer {
+    text-transform: uppercase;
+    /* text-align: right; */
 }
 
 /* Placing two images/videos on top of another. */
@@ -1273,9 +1279,9 @@ html {
 
 /* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
 
-.about {
+/* .about {
     color: var(--color-white);
-}
+} */
 
 /* Adjust the layout for the fixed h2 */
 .fixed-title.on-top {
