@@ -34,10 +34,10 @@
     <main class="site-main">
 
         <section class="hero-sub observe-me">
-            <!-- "observe-me" give access to controling the animation and visibility for hero image -->
+            <!-- NOTE: "observe-me" give access to controling the animation and visibility for hero image -->
 
             <div class="h2-wrapper no-blend">
-                <h2 class="no-blendx">Website Refresh for<br>150-year-old library</h2>
+                <h2>Website Refresh for<br>150-year-old library</h2>
             </div>
               
             <div class="fixed-hero">
@@ -49,7 +49,7 @@
         
 
         <section class="casestudy observe-me">
-            <div class="container with-blurx">
+            <div class="container">
 
                 <div class="row">
                     <div class="column one-third">
@@ -71,23 +71,14 @@
 
                 </div>
 
-                <!-- <figure class="video-wrapper">
-                    <video autoplay loop muted playsinline width="1600" height="900">
-                        <source src="img/hspl-process.webm" type="video/webm">
-                    </video>
 
-                    <figcaption>
-                        This video is showing how I broke down the existing site map and come up with a new one. 
-                    </figcaption>
-                </figure> -->
-
-                <div class="row">
+                <!-- <div class="row">
                     <div class="column two-thirds parallax-onscrollx" data-parallax-speed=".1">
 
                         <h3>Current Website</h3>
                         <figure class="video-wrapper">
                             <video autoplay loop muted playsinline width="1600" height="900">
-                                <source src="img/hspl_issues-1920x1080.webm" title="Current website." type="video/webm">
+                                <source src="img/hspl_challenges-1920x1080.webm" title="Current website." type="video/webm">
                             </video>
 
                             <figcaption>
@@ -123,11 +114,70 @@
                         </div>
                     </div>
 
+                </div> -->
+
+
+                <!-- TEST CODE START -->
+
+                <div class="row">
+                    <div class="sticky-parent column two-thirds parallax-onscrollx" data-parallax-speed=".1">
+
+                        <figure class="video-wrapper sticky-child">
+                            <video id="challenge-video" muted playsinlinex width="1600" height="900">
+                                <source src="img/hspl_challenges-1920x1080.webm" title="Current website." type="video/webm">
+                            </video>
+
+                            <figcaption>
+                                Current website (as of 2025).
+                            </figcaption>
+                        </figure>
+
+                    </div>
+
+                    <div class="column one-third parallax-onscrollx" data-parallax-speed="-.1">
+                        <div class="challenge-00">
+                            <h4>Challenge</h4>
+                            <p>The current website (as of June 2024) suffers from a fundamental issue: a complex and overwhelming information architecture. While it makes sense for a statewide library system to contain vast amounts of information, the site currently lacks a user-centric perspective. </p> 
+                            <p>Key challenges include:</p>
+                        </div>
+                        
+
+                        <div class="challenge-01 observe-me-challenge">
+                            <p>Poor visual hierarchy, which makes the users navigate the site&nbsp;difficult.</p>
+
+                        </div>
+
+                        <div class="challenge-02 observe-me-challenge">
+                            <p>
+                                Ineffective graphics that distract rather than enhance&nbsp;communication.
+                            </p>
+                            
+                        </div>
+
+                        <div class="challenge-03 observe-me-challenge">
+                            <p>
+                                Limited identity representation, failing to highlight the library&rsquo;s role as an educational, cultural, and community&nbsp;hub.
+                            </p>
+                            
+                        </div>
+
+                        <div class="challenge-04 observe-me-challenge">
+                            <div class="frame observe-me load-expand">
+                
+                                <div class="container">
+                                    <h4>The Question;</h4>
+                                    <blockquote>The library&lsquo;s mission is to promote literacy, lifelong learning, and community engagement—but is its website effectively supporting this&nbsp;mission?
+                                    </blockquote>
+            
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
                 </div>
 
-            </div>
-
-            <div class="container">
+                <!-- TEST CODE END -->
 
                 <div class="img-wrapper">
                     <img src="img/hspl-challenge-viz_1920x1080-75.webp" alt="placeholder." width="1600" height="900">
@@ -356,6 +406,7 @@
     <!-- MAIN JS FILE -->
     <script src="../js/script.js"></script>
     <script src="../js/scroll.js"></script>
+    <script src="../js/hspl-challenge.js"></script>
 
     <!-- ICON FILE -->
     <script src="https://kit.fontawesome.com/68d6b5750a.js" crossorigin="anonymous"></script>

@@ -1203,7 +1203,6 @@ section {
     top: 50%;
     translate: 0 -50%;
     z-index: -1;
-    /* mix-blend-mode: normal; */
 
     transition: opacity 1.5s linear;
 }
@@ -1260,7 +1259,6 @@ section {
 #brief h2,
 .about h2 {
     opacity: .1;
-    /* mix-blend-mode: difference; */
 }
 
 #brief h3 {
@@ -1350,19 +1348,6 @@ section {
     z-index: 30;
     position: relative;
 }
-
-/* Question: how can I override blend-mode? 
-Are there better way to show the title? 
-
-Option: adjust the baclground image */
-/* .no-blend {
-    border: 2px solid red;
-    mix-blend-mode: normal;
-    
-    h2 {
-        color: var(--color-black);
-    }
-} */
 
 .hero-sub h2 {
     text-transform: uppercase;
@@ -1534,6 +1519,23 @@ figure {
 .user-persona h4 span {
     font-family: var(--font-serif-bolditalic);
     text-transform: none;
+}
+
+.sticky-parent {
+    position: relative;
+}
+
+.sticky-child {
+    border: 2px solid red;
+    position: sticky;
+    top: 0;
+}
+
+.challenge-00,
+.challenge-01,
+.challenge-02,
+.challenge-03 {
+    height: 100svh;
 }
 
 
