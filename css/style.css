@@ -863,15 +863,14 @@ section {
 /* --    ANIMATION   -- */
 /* -------------------- */
 
-/* ADD SUPPORT FOR SMOOTH SCROLLING */
-html {
+/* ADD SUPPORT FOR SMOOTH SCROLLING - don't use it with JS */
+/* html {
     scroll-behavior: smooth;
-}
+} */
 
 /* [data-page-loaded="not-loaded"] .hero .observe-me {
     transition-delay: 3s;
 } */
-
 
 /* SCROLL TRIGGERED ANIMATION
  * corresponding with JS
@@ -1139,6 +1138,11 @@ html {
     z-index: -10;
 }
 
+#sandboxes:has(.thumbnails-wrapper[data-viewstate="active"]) .fixed-title {
+    opacity: .1;
+    /* mix-blend-mode: overlay; */
+} 
+
 /* Sandboxes & About page bespoke grid */
 .thumbnails-wrapper {
     display: grid;
@@ -1199,19 +1203,20 @@ html {
     top: 50%;
     translate: 0 -50%;
     z-index: -1;
+    /* mix-blend-mode: normal; */
+
+    transition: opacity 1.5s linear;
 }
 
+
+/* Needs to: create images to 16:9 ratio */
 .thumbnail {
-    border-radius: 5%;
-    filter: brightness(.9);
+    /* aspect-ratio: 1920/1080; */
     overflow: hidden;
-    transition: 0.3s;
+    border-radius: 32px;
+    /* filter: brightness(.9);
+    transition: 0.3s; */
     cursor: pointer;
-
-    /* &:hover {
-        box-shadow: 0 0 24px 0 var(--color-black);
-    } */
-
 }
 
 .thumb-explainer {
@@ -1228,9 +1233,9 @@ html {
     grid-row: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 
-    /* For cases that images are in different shapes or the parent dictate the shape of cards */
+    /* For cases that images are in different shapes or the parent dictate the shape of cards, use this code */
     /* object-fit: cover;
     width: 100%;
     height: 100%; */
@@ -1251,11 +1256,10 @@ html {
     }
 }
 
-
 /* BRIEF SECTION TYPOGRAPHY & LAYOUT*/
 #brief h2,
 .about h2 {
-    mix-blend-mode: overlay;
+    opacity: .1;
     /* mix-blend-mode: difference; */
 }
 
@@ -1348,11 +1352,17 @@ html {
 }
 
 /* Question: how can I override blend-mode? 
-Are there better way to show the title? */
-.no-blend {
-    /* border: 2px solid red; */
+Are there better way to show the title? 
+
+Option: adjust the baclground image */
+/* .no-blend {
+    border: 2px solid red;
     mix-blend-mode: normal;
-}
+    
+    h2 {
+        color: var(--color-black);
+    }
+} */
 
 .hero-sub h2 {
     text-transform: uppercase;

@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ON SCROLL ANIMATION, INTERSECTION OBSERVER
 // Change active state for all elements with class="observe-me"
-const myobserver = new IntersectionObserver((entries) => {
+const scrollobserver = new IntersectionObserver((entries) => {
 
   // look throught all entries
   entries.forEach((entry) => {
@@ -87,10 +87,10 @@ const myobserver = new IntersectionObserver((entries) => {
 
 });
 
-const mytargets = document.querySelectorAll('.observe-me');
-mytargets.forEach((el) => {
+const scrolltargets = document.querySelectorAll('.observe-me');
+scrolltargets.forEach((el) => {
   
     // sobserve every target
-  myobserver.observe(el);
+  scrollobserver.observe(el);
   
 });
