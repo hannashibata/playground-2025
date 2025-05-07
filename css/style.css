@@ -1148,27 +1148,29 @@ section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
+    /* gap: calc(var(--unit-medium) / 2); */
+    gap: var(--unit-large);
 }
 
 /* Sandboxes thumbs bespoke layout using the above grid */
 /* QUESTION: what is the best way to make the thumbnails rectangular? */
 .thumbnails-wrapper > *:nth-child(1) {
-    grid-column: 1 / span 6;
+    grid-column: 2 / span 7;
     grid-row: 1 / span 2;
 }
 
 .thumbnails-wrapper > *:nth-child(2) {
-    grid-column: 8 / span 5;
-    grid-row: 2 / span 2;
+    grid-column: 6 / span 7;
+    grid-row: 3 / span 2;
 }
 
 .thumbnails-wrapper > *:nth-child(3) {
     grid-column: 2 / span 5;
-    grid-row: 4 / span 2;
+    grid-row: 5 / span 2;
 }
 
 .thumbnails-wrapper > *:nth-child(4) {
-    grid-column: 6 / span 4;
+    grid-column: 7 / span 4;
     grid-row: 6 / span 2;
 }
 
