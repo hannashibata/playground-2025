@@ -1262,15 +1262,21 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-}
 
-@media (min-width: 768px) {
-    .thumbnail a:has(img + video):hover {
+    &:hover img {
         opacity: 0;
     }
 }
 
+/* QUESTION: this broke the hover state in the large screens?? */
+/* @media (min-width: 768px) {
+    .thumbnail a:has(img + video):hover {
+        opacity: 0;
+    }
+} */
+
 /* BRIEF SECTION TYPOGRAPHY & LAYOUT*/
+/* REFACTOR: look into specificity */
 #brief h2,
 .about h2 {
     opacity: .1;
