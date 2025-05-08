@@ -28,14 +28,27 @@ const mychallengeobserver = new IntersectionObserver((entries) => {
                 console.log("challenge-02 is in view");
                 mychallengevideo.currentTime=2;
                 mychallengevideo.play();
+                setTimeout(function() {
+                    mychallengevideo.pause();
+                }, 2000);
                 
             } else if (entry.target.classList.contains('challenge-03')) {
 
                 console.log("challenge-03 is in view");
+                mychallengevideo.currentTime=3;
+                mychallengevideo.play();
+                setTimeout(function() {
+                    mychallengevideo.pause();
+                }, 2000);
                 
             } else if (entry.target.classList.contains('challenge-04')) {
 
                 console.log("challenge-04 is in view");
+                mychallengevideo.currentTime=6;
+                mychallengevideo.play();
+                setTimeout(function() {
+                    mychallengevideo.pause();
+                }, 2000);
             };
 
         };

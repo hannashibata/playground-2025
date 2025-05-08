@@ -316,7 +316,6 @@ img, video {
     left: -9999px;
 }
 
-
 @media (max-width: 767px) {
     .hide-visually-smallonly {
         position: absolute;
@@ -335,8 +334,7 @@ img, video {
 
     .with-padding-top {
         padding-top: 4em;
-    }
-    
+    } 
 }
 
 /* ------------------- */
@@ -1302,11 +1300,6 @@ section {
 /* CUSTOM STYLING FOR SUBPAGES */
 
 /* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
-
-/* .about {
-    color: var(--color-white);
-} */
-
 /* Adjust the layout for the fixed h2 */
 .fixed-title.on-top {
     top: 20%;
@@ -1456,6 +1449,7 @@ figure {
     border-radius: 8px;
     max-width: 100%;
     margin: .5em 0;
+    overflow: clip;
 }
 
 .hero-sub {
@@ -1521,7 +1515,6 @@ figure {
 .user-persona {
     background-color: var(--color-white);
     color: var(--color-black);
-    /* height: 40em; */
     border-radius: 8px;
     padding: 2em;
     display: grid;
@@ -1547,9 +1540,9 @@ figure {
 }
 
 .sticky-child {
-    border: 2px solid red;
     position: sticky;
-    top: 0;
+    top: 10svh;
+    padding-top: var(--unit-large);
 }
 
 .challenge-00,
@@ -1557,8 +1550,8 @@ figure {
 .challenge-02,
 .challenge-03 {
     height: 100svh;
+    padding: 10em 0;
 }
-
 
 
 /* FOR DEV PURPOSES ONLY */
