@@ -672,7 +672,6 @@ body {
 
 /* QUESTION: why is this border-radius not visible in subpages??? */
 .site-main {
-    border: 2px solid red;
     background-color: var(--color-body-bg);
     position: relative;
     z-index: 20;
@@ -1572,3 +1571,8 @@ img, svg, canvas, video, iframe {
     background-color: rgba(0,0,0,.05) !important;
     background-image: none !important;
 } */
+
+/* .site-main {
+    border: 2px solid red;
+} */
+
