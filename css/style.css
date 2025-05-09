@@ -250,20 +250,16 @@ h4 {
 }
 
 dl {
-    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
 
 dt {
-    /* font-family: var(--font-sansserif); */
-    /* font-weight: 600; */
     font-family: var(--font-serif-regular);
     font-feature-settings: "dlig" 1;
 }
 
 dd {
-    /* border: 2px solid red; */
     font-family: var(--font-sansserif); 
     font-weight: 400;
     line-height: 1.1;
@@ -459,7 +455,6 @@ body {
 /* SITE HEADER */
 .site-header {
     background-color: var(--color-siteheader-bg);
-    /* border: 1px solid  red; */
     
     /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
     /* @media (min-width: 768px) {
