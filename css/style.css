@@ -675,7 +675,7 @@ body {
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
     margin-bottom: -32px;
-    overflow: clip;
+    overflow-x: clip;
 }
 
 /* SECTIONS */
@@ -733,13 +733,6 @@ section {
     }
     
     .social-links a::after{
-        /* content: "";
-        background-image: url(../img/icon-newwindow.svg);
-        background-size: contain;
-        width: 1em;
-        height: 1em;
-        display: none; */
-
         display: none;
         content: "";
         width: .8em;
@@ -983,7 +976,6 @@ section {
 }
 
 
-
 /* HOME */
 .hero-home .frame .eyebrow {
     font-family: var(--font-sansserif);
@@ -1019,15 +1011,6 @@ section {
     /* margin-top: 0.9vw; */
 }
 
-/* .hero-home .frame a {
-    border: 2px solid red;
-    color: var(--color-a);
-
-    &:hover {
-        color: var(--color-blue);
-    }
-} */
-
 .hero-home .frame h3 {
     margin: 0;
     padding: 0;
@@ -1061,7 +1044,6 @@ section {
     /* padding: 0; */
     margin-inline: auto;
     interpolate-size: allow-keywords;
-    /* animation: load-expand 1s ease-out forwards;  */
     animation: load-expand 2s cubic-bezier(.74,-0.04,1,.17) forwards;
 }
 
@@ -1074,7 +1056,6 @@ section {
     opacity: 0;
     position: relative;
     z-index: 200;
-    /* animation: load-expand-content 1s ease-out forwards;  */
     animation: load-expand-content 2s cubic-bezier(.74,-0.04,1,.17) forwards;
 }
 
@@ -1308,12 +1289,10 @@ section {
 .about h3 {
     font-weight: normal;
     font-size: 2.5em;
-    /* padding: 0; */
     margin: 0;
 }
 
 .about h4 {
-    /* border: 2px solid red; */
     font-weight: 600;
     margin: 0;
     
@@ -1348,19 +1327,19 @@ section {
     padding: 3svh;
 }
 
+/* QUESTION: this is not centered in small screens??? */
 .h2-wrapper {
-    height: 20svh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: var(--unit-medium);
     text-align: center;
-    color: var(--my-black);
-    animation-name: fadein-up;
-    animation-duration: 2s;
+    /* margin: var(--unit-medium); */
+    /* animation-name: fadein-up; */
+    /* animation-duration: 2s; */
     mix-blend-mode: difference;
     z-index: 30;
     position: relative;
+    translate: 0 50%;
 }
 
 .hero-sub h2 {
@@ -1368,17 +1347,19 @@ section {
     font-family: var(--font-serif-bold);
     font-weight: normal;
     font-feature-settings: "dlig" 1;
-    font-size: 3.75em;
+    font-size: clamp(1.5vw, 3.75em, 3.75em);
     line-height: 1;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
-@media ( max-width: 767px ) {
+/* @media ( max-width: 767px ) {
     .h2-wrapper {
         width: 100%;
         height: 85vh;
         padding: 24em 4em;
     }
-}
+} */
 
 .casestudy h2, h5 {
     text-transform: uppercase;
@@ -1407,7 +1388,6 @@ section {
 }
 
 .container-img {
-    /* border: 2px solid red; */
     display: grid;
     place-items: center;
     width: 100wv;
@@ -1429,7 +1409,7 @@ figure {
 }
 
 .video-wrapper {
-    overflow: hidden;
+    overflow: clip;
 }
 
 .video-wrapper video {
@@ -1455,37 +1435,37 @@ figure {
 .hero-sub {
     margin: 0;
     padding: 0;
-    min-height: 100svh;
+    /* min-height: 100svh; */
+    /* min-height: calc(100svh - 5em); */
+    /* border: 2px solid purple; */
 }
 
-/* ANIMATION FOR HERO */
-.site-main:has(.casestudy.observe-me[data-viewstate = 'active']) .fixed-hero {
+/* ANIMATION FOR HERO ON SUBPAGES*/
+body:has(.site-header.observe-me[data-viewstate = 'inactive']) .fixed-hero {
     /* border: 2px solid green; */
-    top: 0;
-    scale: 105%;
+    /* top: -30em;  */
+    translate: 0 -50%;
+    opacity: 0;
+    scale: 1.5;
     rotate: 10deg;
     z-index: -10;
 }
 
-.site-main:has(.hero-sub.observe-me[data-viewstate = 'inactive']) .fixed-hero {
+/* .site-main:has(.hero-sub.observe-me[data-viewstate = 'active']) .fixed-hero {
     visibility: hidden;
-}
+} */
 
 .fixed-hero {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 70vh;
+    align-items: flex-end;
 
     /* Whenever the parent is displa:flex, width is determined by children */
     width: 100%;
     background-size: 100%;
     background-position: center;
-
     transition: all 1s ease-out;
-    position: fixed;
-
-    top: 30vh;
+    position: relative;
 }
 
 /* Keep the hero image and video in full-width in large screens */
