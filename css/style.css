@@ -1408,6 +1408,8 @@ figure {
 
 .video-wrapper {
     overflow: clip;
+    display: grid;
+    place-items: center;
 }
 
 .video-wrapper video {
