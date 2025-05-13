@@ -1119,13 +1119,12 @@ section {
     text-align: center;
     font-size: clamp(2em, 8vw, 8vw);
     margin: 10vw auto;
-    padding: 10vw auto;
+    padding: 10vw;
     z-index: -10;
 }
 
 #sandboxes:has(.thumbnails-wrapper[data-viewstate="active"]) .fixed-title {
     opacity: .1;
-    /* mix-blend-mode: overlay; */
 } 
 
 /* Sandboxes & About page bespoke grid */
@@ -1186,12 +1185,12 @@ section {
 
 }
 
-
 #sandboxes .container,
 .about .container {
     position: relative;
 }
 
+/* the sticky is gone???? */
 .fixed-title {
     position: sticky;
     top: 50%;
@@ -1201,10 +1200,8 @@ section {
     transition: opacity 1.5s linear;
 }
 
-
 /* Needs to: create images to 16:9 ratio */
 .thumbnail {
-    /* aspect-ratio: 1920/1080; */
     overflow: hidden;
     border-radius: 32px;
     /* filter: brightness(.9);
