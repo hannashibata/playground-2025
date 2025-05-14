@@ -1188,13 +1188,17 @@ section {
 #sandboxes .container,
 .about .container {
     position: relative;
+    /* border: 2px solid blue; */
 }
 
 /* the sticky is gone???? */
+
 .fixed-title {
+    /* border: 1px solid red; */
     position: sticky;
-    top: 50%;
-    translate: 0 -50%;
+    top: 0;
+    /* top: 50%;
+    translate: 0 -50%; */
     z-index: -1;
 
     transition: opacity 1.5s linear;
@@ -1282,6 +1286,7 @@ section {
 
 /* ABOUT PAGE TYPOGRAPHY & LAYOUT*/
 /* Adjust the layout for the fixed h2 */
+/* temp breaking the class name in html */
 .fixed-title.on-top {
     top: 20%;
 }
