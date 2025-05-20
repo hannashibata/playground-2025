@@ -664,8 +664,6 @@ body {
 
 /* SITE MAIN */
 
-
-/* QUESTION: why is this border-radius not visible in subpages when overflow is clipped??? */
 .site-main {
     background-color: var(--color-body-bg);
     position: relative;
@@ -673,7 +671,9 @@ body {
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
     margin-bottom: -32px;
-    overflow-x: hidden;
+    /* overflow-x: clip;
+    overflow-y: clip; */
+    overflow: clip;
 }
 
 /* SECTIONS */
