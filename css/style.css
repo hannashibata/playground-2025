@@ -1424,6 +1424,12 @@ figure {
     max-width: 100%;
 }
 
+/* QUESTION: What is the best way to control the figcaption layout? */
+/* .video-wrapper figcaption {
+    place-items: left;
+    text-align: left;
+} */
+
 .button-wrapper {
     margin: 6em 0 1em 0;
     display: grid;
