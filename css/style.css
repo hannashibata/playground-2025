@@ -325,7 +325,11 @@ img, video {
     text-align: right;
 }
 
-/* QUESTION: why is this padding not working? */
+/* Accent color */
+.color-yellow {
+    color: var(--color-yellow);
+}
+
 @media (max-width: 767px) {
 
     .with-padding-top {
